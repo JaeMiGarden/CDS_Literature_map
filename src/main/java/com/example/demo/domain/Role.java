@@ -1,5 +1,14 @@
 package com.example.demo.domain;
 
-public class Role {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+public enum Role {
+    ADMIN("ROLE_ADMIN"),
+    MEMBER("ROLE_MEMBER");
+
+	@Getter
+    private String value;
 
 }
