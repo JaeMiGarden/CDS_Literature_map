@@ -1,14 +1,16 @@
-package com.example.demo.domain;
+package com.example.demo;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
+@Getter
 public enum Role {
-    ADMIN("ROLE_ADMIN"),
-    MEMBER("ROLE_MEMBER");
 
-	@Getter
+    MEMBER("ROLE_MEMBER"),
+    ADMIN("ROLE_ADMIN");
+
     private String value;
 
 }
