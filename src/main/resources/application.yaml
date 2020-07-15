@@ -1,0 +1,26 @@
+server: 
+  port : 8000
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2_db
+  
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/munhak?serverTimezone=Asia/Seoul&characterSet=UTF8
+    username: root
+    password: p158742639
+      
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+logging:
+  level:
+    org.hibernate.type: trace
+    
+mybatis:
+  mapper-locations:
+  - classpath*:mapper/*.xml

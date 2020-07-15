@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.board.Board;
+import com.example.demo.member.Member;
+
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +40,7 @@ public class MemberController {
 
     @GetMapping("/member/new")
     public String memberJoinForm(Member memberForm) {
-        return "memberJoinForm";
+        return "member";
     }
 
     @PostMapping("/member/new")
@@ -45,6 +48,12 @@ public class MemberController {
         memberForm.setPassword(passwordEncoder.encode(memberForm.getPassword()));
         memberRepository.save(memberForm);
         return "redirect:/login";
+    }
+    
+    @GetMapping("/fileUpload")
+    public String fileUpload(Board boardForm) {
+    	
+    	return "fileUpload.html";
     }
 
 }

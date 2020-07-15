@@ -9,6 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.member.Member;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,7 +32,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             grantedAuthorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
         }
 
-        return new User(member.getMemberId(), member.getPassword(), grantedAuthorities);
+        return new User(member.getMemberNumber(), member.getPassword(), grantedAuthorities);
     }
 
 }

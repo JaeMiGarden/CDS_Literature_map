@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.member;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -16,21 +16,18 @@ import javax.persistence.Id;
 public class Member {
 
     @Id @GeneratedValue
-    private Long id;
+    private Long memberId;
 
-    private String memberId;
+    private String memberNumber;
+    
+    private String memberName;
 
-    private String password;
+    private String password; 
 
-    private Integer age;
-
-    private Boolean isMarried;
-
-    public Member(String memberId, String password, Integer age, Boolean isMarried) {
-        this.memberId = memberId;
-        this.password = password;
-        this.age = age;
-        this.isMarried = isMarried;
+    public Member(String memberNumber, String memberName, String password) {
+    	this.memberNumber = memberNumber;
+    	this.memberName = memberName;
+    	this.password = password;
     }
 
     public void setPassword(String password) {
