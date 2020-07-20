@@ -51,12 +51,12 @@ body {
 .form-signin .form-control:focus {
   z-index: 2;
 }
-.form-signin input[type="id"] {
+.form-signin input[type="id"] input[type="name"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.form-signin input[type="password"] {
+.form-signin input[type="password"] input[type="number"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -68,4 +68,7 @@ body {
   border-color: #61a761;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(21, 92, 0, 0.25);
+}
+.box {
+  margin: 10px 0;
 }
