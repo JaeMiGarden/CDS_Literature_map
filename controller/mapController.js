@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 
 const Board = mongoose.model('Board');
 
-export const getHome = (req, res) => {
+export const getHome = async (req, res) => {
+
     return res.render('map.html');
 }
 

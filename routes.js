@@ -12,6 +12,10 @@ const BOARD = "/board";
 const READ = "/read";
 const WRITE = "/write";
 
+//API
+const API = "/api";
+const LOAD_POSTING = "/loadPosting";
+
 const route = {
     home: HOME,
     login : LOGIN,
@@ -24,6 +28,8 @@ const route = {
     read: READ,
     write: WRITE,
 
+    api: API,
+    loadPosting: LOAD_POSTING,
 };
 
 export default route;

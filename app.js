@@ -15,6 +15,7 @@ import mongoose from 'mongoose';
 import './passport'
 import { localsMiddleware } from './middleware';
 import boardRouter from './router/boardRouter';
+import apiRouter from './router/apiRouter';
 
 const app = express();
 
@@ -45,5 +46,6 @@ app.use(localsMiddleware);
 app.use(route.home, globalRouter);
 app.use(route.user, userRouter);
 app.use(route.board, boardRouter);
+app.use(route.api, apiRouter);
 
 export default app;
