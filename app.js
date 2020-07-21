@@ -1,22 +1,20 @@
 import express from 'express';
 import cons from 'consolidate';
-import path from 'path';
 import ejs from 'ejs';
+import route from './routes';
+import globalRouter from './router/globalRouter';
+import userRouter from './router/userRouter';
+import path from 'path';
 
 const app = express();
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, 'templates')))
+app.set('views', path.join(__dirname, "templates/"));
+app.engine('html', ejs.renderFile);
+app.use(express.static("templates"));
+app.use(express.static("files"));
 
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname + '/templates/login.html'));
-})
+app.use(route.home, globalRouter);
+app.use(route.user, userRouter);
 
-app.get('/signin', (req, res) => {
-    res.sendFile(path.join(__dirname + '/templates/login.html'));
-})
 
-const handleListening = () => {
-    return console.log("START");
-}
-
-app.listen(4000, handleListening);
+export default app;
