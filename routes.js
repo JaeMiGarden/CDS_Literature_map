@@ -1,16 +1,22 @@
 // global
 const HOME = "/";
-
-const USER = "/user";
 const LOGIN = "/login";
+const LOGOUT = "/logout";
 const SiGNIN = "/signin";
+
+// USER
+const USER = "/user";
+
+
 
 const route = {
     home: HOME,
-    
-    user:USER,
     login : LOGIN,
     signin: SiGNIN,
+
+    user: USER,
+    logout: LOGOUT
+
 };
 
 export default route;
