@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node init.js"
+    "start": "babel-node init.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.25",
     "nodemon": "^2.0.4",
+    "pm2": "^4.4.0",
     "swig": "^1.4.2"
   }
 }
