@@ -8,7 +8,7 @@ passport.use(new LocalStrategy({
     usernameField: 'id',
     passwordField: 'password'
 },
-    (username, password, done) => {
+    async (username, password, done) => {
         User.findOne({ id: username }, (err, user) => {
             if (err) { return done(err); }
             if (!user) { return done(null, false, {message:"incorrect username"}); }

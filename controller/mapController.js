@@ -5,12 +5,11 @@ const Board = mongoose.model('Board');
 
 export const getHome = async (req, res) => {
     const board = await Board.find({});
-    console.log(board);
     return res.render('map.html', {pageTitle:"Home", board});
 }
 
 export const getBoardWrite = (req, res) => {
-    return res.render('write.html');
+    return res.render('write.html', {pageTitle: "BoardWriting"});
 }
 
 export const postBoardWrite = async (req, res) => {

@@ -6,15 +6,21 @@ export const localsMiddleware = (req, res, next) => {
 };
 
 export const onlyPublic = (req, res, next) => {
-    if (req.user !== undefined) {
+    if(req.isAuthenticated()) {
         return res.redirect(route.home);
     }
+    else {
+
     next();
+    }
+
 }
 
 export const onlyPrivate = (req, res, next) => {
-    if (req.user !== undefined) {
+    if (req.isAuthenticated()){
         next();
     }
-    return res.redirect(route.home);
+    else {
+        return res.redirect(route.home);
+    }
 }

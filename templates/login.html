@@ -15,12 +15,12 @@
 </head>
 
 <body class="text-center">
-    <form  class="form-signin">
+    <form  class="form-signin" action="/login" method="post">
         <h1 class="h3 mb-3 font-weight-normal title">숭문문학지도</h1>
         <h3 class="h5">로그인하기</h3>
-        <input type="id" id="inputID" class="form-control" placeholder="아이디" required="" autofocus="">
+        <input type="text" id="inputID" name="id" class="form-control" placeholder="아이디" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" required="">
+        <input type="password" id="inputPassword" name ="password"class="form-control" placeholder="비밀번호" required>
         <!--
         <div class="checkbox mb-3">
             <label>
