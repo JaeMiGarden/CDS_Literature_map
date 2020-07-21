@@ -1,11 +1,9 @@
 import route from '../routes';
 import express from 'express';
-import { getLogin, getSignin } from '../controller/userController';
+import { getLogin, getSignin, postLogin, postSignin, localLogin } from '../controller/userController';
+import { onlyPublic } from '../middleware';
 
 const userRouter = express.Router();
 
-userRouter.get(route.login, getLogin);
-
-userRouter.get(route.signin, getSignin);
 
 export default userRouter;

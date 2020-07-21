@@ -1,3 +1,9 @@
+
+import './database/db';
+
+import './database/model/Board'
+import './database/model/User';
+
 import app from './app';
 
 const PORT = 4000;

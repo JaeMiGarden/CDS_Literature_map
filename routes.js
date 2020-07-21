@@ -1,5 +1,5 @@
 // global
-const HOME = "/home";
+const HOME = "/";
 
 const USER = "/user";
 const LOGIN = "/login";

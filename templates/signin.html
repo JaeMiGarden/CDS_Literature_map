@@ -10,20 +10,20 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href='/stylesheets/login.css'">
+    <link rel="stylesheet" type="text/css" href='/stylesheets/login.css'>
     
 </head>
 
 <body class="text-center">
-    <form class="form-signin">
+    
+    <form action="/signin" method ="post" class="form-signin"> 
         <h1 class="h3 mb-3 font-weight-normal title">숭문문학지도</h1>
-        <h3 class="h5">회원가입하기</h3>
-
-        <div class="box">
-            <input type="id" id="inputID" class="form-control" placeholder="아이디" required="" autofocus="">
-            <input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" required="">
-            <input type="name" id="inputName" class="form-control" placeholder="이름" required="">
-            <input type="number" id="inputNumber" class="form-control" placeholder="학번" required="">
+        <h3 class="h5">회원가입하기</h3>       
+            <input type="text" id="inputID" class="form-control" name="id" placeholder="아이디" required="" autofocus=""/>
+            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="비밀번호" required=""/>
+            <input type="text" id="inputName" class="form-control" name="name" placeholder="이름" required=""/>
+            <input type="number" id="inputNumber" name="studentNumber" class="form-control" placeholder="학번"/>
+            <input class="btn btn-lg btn-success btn-block" type="submit"/>
             <!--
             <div class="checkbox mb-3">
                 <label>
@@ -31,9 +31,7 @@
                 </label>
             </div>
             -->    
-        </div>
 
-        <button class="btn btn-lg btn-success btn-block" type="submit">가입하기</button>
         <p class="mt-5 mb-3 text-muted">© 책으로 따뜻한 세상 만드는 교사들</p>
     </form>
 
