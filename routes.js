@@ -7,15 +7,22 @@ const SiGNIN = "/signin";
 // USER
 const USER = "/user";
 
-
+// BOARD
+const BOARD = "/board";
+const READ = "/read";
+const WRITE = "/write";
 
 const route = {
     home: HOME,
     login : LOGIN,
     signin: SiGNIN,
+    logout: LOGOUT,
 
     user: USER,
-    logout: LOGOUT
+    
+    board: BOARD,
+    read: READ,
+    write: WRITE,
 
 };
 

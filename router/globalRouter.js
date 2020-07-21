@@ -1,9 +1,9 @@
 import express from 'express';
 import route from '../routes';
 import path from 'path';
-import { getHome } from '../controller/boardController';
 import { onlyPublic, onlyPrivate } from '../middleware';
 import { getLogin, postLogin, getSignin, postSignin, getLogout } from '../controller/userController';
+import { getHome } from '../controller/mapController';
 
 const globalRouter = express.Router();
 

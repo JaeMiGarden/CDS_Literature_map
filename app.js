@@ -14,6 +14,7 @@ import MongoStore from 'connect-mongo';
 import mongoose from 'mongoose';
 import './passport'
 import { localsMiddleware } from './middleware';
+import boardRouter from './router/boardRouter';
 
 const app = express();
 
@@ -43,5 +44,6 @@ app.use(localsMiddleware);
 
 app.use(route.home, globalRouter);
 app.use(route.user, userRouter);
+app.use(route.board, boardRouter);
 
 export default app;
