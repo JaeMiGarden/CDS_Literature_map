@@ -4,8 +4,9 @@ import mongoose from "mongoose";
 const Board = mongoose.model('Board');
 
 export const getHome = async (req, res) => {
-
-    return res.render('map.html');
+    const board = await Board.find({});
+    console.log(board);
+    return res.render('map.html', {pageTitle:"Home", board});
 }
 
 export const getBoardWrite = (req, res) => {
@@ -19,7 +20,7 @@ export const postBoardWrite = async (req, res) => {
     const votes = 0;
     try {
         const board = await new Board({
-            title, body, author, latitude, longitude, votes
+            title, body, author, latitude, longitude
         });
         await board.save();
         return res.redirect(route.home);
@@ -29,6 +30,23 @@ export const postBoardWrite = async (req, res) => {
     }
 }
 
-export const getBoardRead = (req, res) => {
-    return res.render('read.html');
+export const getBoardRead = async (req, res) => {
+    const {
+        body: { title }
+    } = req;
+
+    const posting = await Board.find({
+        title
+    });
+
+    const {
+        body, author, date, votes
+    } = posting;
+
+    console.log(posting);
+    posting.votes++;
+
+    await posting.save();
+
+    return res.render('board.html', { pageTitle: "board", posting }); 
 }

@@ -7,6 +7,14 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/map.css">
 </head>
 <body>
+    <form action="/board/write" method="post" autofocus>
+        <input type="text" name="title" placeholder="제목"/>
+        <textarea name="body" rows="4" cols="50" placeholder="본문"> </textarea>
+        <input type="text" name="author" placeholder="저자"/>
+        <input type="hidden" name="latitude" value="33.450701"/>
+        <input type="hidden" name="longitude" value="33.450701"/>
 
+        <input type="submit" value="submit"/>
+    </form>
 </body>
 </html>
