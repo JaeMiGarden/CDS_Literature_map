@@ -25,11 +25,15 @@ export const postSignin = async (req, res, next) => {
         const user = await User({
             id, password, name, studentNumber
         }); 
-        console.log(user);
         await user.save();
         next();
     } catch (error) {
         console.log(error);
         return res.redirect(route.home);
     }
+}
+
+export const getLogout = (req, res) => {
+    req.logout();
+    return res.redirect(route.home);
 }
