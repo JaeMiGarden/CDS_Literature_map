@@ -12,7 +12,11 @@
     <label> 날짜 : <%=posting.date%></label><br/>
     <%console.log(posting.image)%>
 
-<img name="picture" src="/pictures/<%=posting.image%>" id="picture"/>
+<img name="picture" src="/pictures/<%=posting.image%>" id="picture"/><br/>
+
+<form action="/board/<%=posting.id%>/delete" method="get">
+    <input type="submit" name="delete" id="delete" value="delete"/>
+</form>
 </body>
 
 </html>

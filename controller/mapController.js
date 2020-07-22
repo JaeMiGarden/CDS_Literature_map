@@ -52,3 +52,21 @@ export const getBoardRead = async (req, res) => {
         return res.redirect(route.home);
     };
 }
+
+export const getBoardDelete = async (req, res) => {
+    const {
+        params: { id }
+    } = req;
+
+    try {
+        await Board.deleteOne({
+            _id:id
+        });
+
+        return res.redirect(route.home);
+
+    } catch (error) {
+        console.log(error);
+        return res.redirect(route.home);
+    }
+}

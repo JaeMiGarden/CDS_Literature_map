@@ -9,8 +9,9 @@ const USER = "/user";
 
 // BOARD
 const BOARD = "/board";
-const BOARD_DETAIL = "/:id";
 const WRITE = "/write";
+const BOARD_DETAIL = "/:id";
+const BOARD_DELETE = "/:id/delete";
 
 //API
 const API = "/api";
@@ -34,6 +35,13 @@ const route = {
         }
     },
     write: WRITE,
+    delete: (id) => {
+        if (id) {
+            return `/board/${id}`;
+        } else {
+            return BOARD_DELETE;
+        }
+    },
 
     api: API,
     loadPosting: LOAD_POSTING,
