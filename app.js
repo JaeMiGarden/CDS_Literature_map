@@ -24,6 +24,7 @@ const CookieStore = MongoStore(session);
 app.use(helmet());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "templates/"));
+app.use(express.static('uploads'));
 app.engine('html', ejs.renderFile);
 app.use(express.static("templates"));
 app.use(express.static("files"));

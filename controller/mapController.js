@@ -13,7 +13,6 @@ export const getBoardWrite = (req, res) => {
 }
 
 export const postBoardWrite = async (req, res) => {
-    console.log(req.file);
     const {
         body: { title, body, author, latitude, longitude },
         file: { filename }
@@ -34,21 +33,22 @@ export const postBoardWrite = async (req, res) => {
 
 export const getBoardRead = async (req, res) => {
     const {
-        body: { title }
+        params: { id }
     } = req;
-
-    const posting = await Board.find({
-        title
-    });
-
+    try {
+        var posting = await Board.findById(id);
     const {
         body, author, date, votes, image
     } = posting;
 
-    console.log(posting);
     posting.votes++;
 
     await posting.save();
 
     return res.render('board.html', { pageTitle: "board", posting }); 
+
+    } catch (error) {
+        console.log(error);
+        return res.redirect(route.home);
+    };
 }
