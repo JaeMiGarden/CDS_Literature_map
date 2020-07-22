@@ -9,6 +9,7 @@ const USER = "/user";
 
 // BOARD
 const BOARD = "/board";
+const BOARD_DETAIL = "/:id";
 const WRITE = "/write";
 const BOARD_DETAIL = "/:id";
 const BOARD_DELETE = "/:id/delete";

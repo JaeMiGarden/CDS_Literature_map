@@ -39,6 +39,7 @@ export const getBoardRead = async (req, res) => {
     } = req;
     try {
         var posting = await Board.findById(id);
+
     const {
         body, author, date, votes, image
     } = posting;
