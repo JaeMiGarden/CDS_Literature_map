@@ -15,7 +15,7 @@ import mongoose from 'mongoose';
 import './passport'
 import { localsMiddleware } from './middleware';
 import boardRouter from './router/boardRouter';
-import apiRouter from './router/apiRouter';
+import multer from 'multer';
 
 const app = express();
 

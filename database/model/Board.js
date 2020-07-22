@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const BoardSchema = new mongoose.Schema({
+    image: Number, 
     title: String,
     body: String,
     author: String,

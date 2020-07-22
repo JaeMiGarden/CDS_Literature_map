@@ -1,4 +1,9 @@
 import route from "./routes";
+import multer from 'multer';
+
+const multerPicture = multer({ dest: 'uploads/pictures' });
+
+export const uploadPicture = multerPicture.single('picture');
 
 export const localsMiddleware = (req, res, next) => {
     res.locals.siteName = "Munhak";
@@ -10,8 +15,7 @@ export const onlyPublic = (req, res, next) => {
         return res.redirect(route.home);
     }
     else {
-
-    next();
+        next();
     }
 
 }

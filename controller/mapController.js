@@ -13,13 +13,16 @@ export const getBoardWrite = (req, res) => {
 }
 
 export const postBoardWrite = async (req, res) => {
+    console.log(req.file);
     const {
-        body: { title, body, author, latitude, longitude}
+        body: { title, body, author, latitude, longitude },
+        file: { filename }
     } = req;
     const votes = 0;
     try {
         const board = await new Board({
-            title, body, author, latitude, longitude
+            title, body, author, latitude, longitude,
+            image:filename
         });
         await board.save();
         return res.redirect(route.home);
@@ -39,7 +42,7 @@ export const getBoardRead = async (req, res) => {
     });
 
     const {
-        body, author, date, votes
+        body, author, date, votes, image
     } = posting;
 
     console.log(posting);
