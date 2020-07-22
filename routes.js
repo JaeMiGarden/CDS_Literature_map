@@ -9,7 +9,7 @@ const USER = "/user";
 
 // BOARD
 const BOARD = "/board";
-const READ = "/read";
+const BOARD_DETAIL = "/:id";
 const WRITE = "/write";
 
 //API
@@ -25,7 +25,14 @@ const route = {
     user: USER,
     
     board: BOARD,
-    read: READ,
+    read: (id) => {
+        if (id) {
+            return `/board/${id}`;
+        }
+        else {
+            return BOARD_DETAIL;
+        }
+    },
     write: WRITE,
 
     api: API,

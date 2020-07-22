@@ -27,6 +27,17 @@
     <form action = "/board/write" method="get">
         <input type="submit" value="write"/>
     </form>
+    <% var boardList = Object.values(board) %>
+        <div id="board">
+    </div>
+    <script>
+        const list = document.getElementById('board');
+        <% for (var i = 0; i < boardList.length; i++) { %>
+        <% boardOne = boardList[i];%>
+        list.innerHTML += "<a href='/board/<%=boardOne._id%>'><%=boardOne.title%></a><br/>"
+        <% } %>
+    </script>
+
 
 </body>
 </html>
