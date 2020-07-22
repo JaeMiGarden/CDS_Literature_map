@@ -1,5 +1,7 @@
 import route from "../routes";
 import mongoose from "mongoose";
+import fs from 'fs';
+import path from 'path';
 
 const Board = mongoose.model('Board');
 
@@ -57,12 +59,16 @@ export const getBoardDelete = async (req, res) => {
     const {
         params: { id }
     } = req;
-
+    console.log(id);
     try {
+        const board = await Board.findById(id);
+        
         await Board.deleteOne({
             _id:id
         });
-
+        fs.unlink(`${path.join(__dirname, "../uploads/pictures/") + board.image}`, (err) => {
+            console.log(err);
+        }); 
         return res.redirect(route.home);
 
     } catch (error) {
