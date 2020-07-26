@@ -2,6 +2,9 @@
   "name": "munhakmap",
   "version": "1.0.0",
   "description": "",
+  "nodemonConfig":{
+    "ignore": ["assets/**"]
+  },
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node init.js"

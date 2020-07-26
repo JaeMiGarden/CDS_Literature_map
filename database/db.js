@@ -6,7 +6,6 @@ mongoose.connect("mongodb+srv://root:root1234@cluster0.eyi6n.mongodb.net/munhak?
     useUnifiedTopology: true
 });
 
-
 const db = mongoose.connection;
 
 const handleOpen = () => console.log("CONNECTED TO DB");

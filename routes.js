@@ -11,12 +11,15 @@ const USER = "/user";
 const BOARD = "/board";
 const BOARD_DETAIL = "/:id";
 const WRITE = "/write";
-const BOARD_DETAIL = "/:id";
 const BOARD_DELETE = "/:id/delete";
 
 //API
 const API = "/api";
 const LOAD_POSTING = "/loadPosting";
+const MAP_BOARD = "/board";
+const IMAGE = "/image/:id";
+
+// static
 
 const route = {
     home: HOME,
@@ -46,6 +49,15 @@ const route = {
 
     api: API,
     loadPosting: LOAD_POSTING,
+    mapBoard: MAP_BOARD,
+
+    image: (id) => {
+        if (id) {
+            return `/api/image/${id}`;
+        } else {
+            return IMAGE;
+        }
+    }
 };
 
 export default route;

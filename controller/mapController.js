@@ -2,16 +2,17 @@ import route from "../routes";
 import mongoose from "mongoose";
 import fs from 'fs';
 import path from 'path';
+import jsStringify from 'js-stringify';
 
 const Board = mongoose.model('Board');
 
 export const getHome = async (req, res) => {
     const board = await Board.find({});
-    return res.render('map.html', {pageTitle:"Home", board});
+    return res.render('map', { pageTitle: "Home", jsStringify, board });
 }
 
 export const getBoardWrite = (req, res) => {
-    return res.render('write.html', {pageTitle: "BoardWriting"});
+    return res.render('write', {pageTitle: "BoardWriting"});
 }
 
 export const postBoardWrite = async (req, res) => {
@@ -48,7 +49,7 @@ export const getBoardRead = async (req, res) => {
 
     await posting.save();
 
-    return res.render('board.html', { pageTitle: "board", posting }); 
+    return res.render('board', { pageTitle: "board", posting }); 
 
     } catch (error) {
         console.log(error);

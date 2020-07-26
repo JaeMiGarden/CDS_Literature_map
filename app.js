@@ -16,18 +16,17 @@ import './passport'
 import { localsMiddleware } from './middleware';
 import boardRouter from './router/boardRouter';
 import multer from 'multer';
+import apiRouter from './router/apiRouter';
 
 const app = express();
 
 const CookieStore = MongoStore(session);
 
 app.use(helmet());
-app.set('view engine', 'ejs');
+app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, "templates/"));
-app.use(express.static('uploads'));
-app.engine('html', ejs.renderFile);
-app.use(express.static("templates"));
-app.use(express.static("files"));
+app.use('/uploads', express.static(path.join(__dirname, "./uploads")));
+app.use(express.static(path.join(__dirname, "/templates")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookie_parser()); 
@@ -47,5 +46,5 @@ app.use(localsMiddleware);
 app.use(route.home, globalRouter);
 app.use(route.user, userRouter);
 app.use(route.board, boardRouter);
-
+app.use(route.api, apiRouter);
 export default app;

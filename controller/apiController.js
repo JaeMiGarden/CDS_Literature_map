@@ -1,4 +1,6 @@
 import route from '../routes';
+import Board from '../database/model/Board';
+import fs from 'fs';
 
 export const apiPicture = async (req, res) => {
     const {
@@ -12,3 +14,16 @@ export const apiPicture = async (req, res) => {
     }
      
 }
+
+export const apiPostBoard = async (req, res) => {
+    const result = await Board.find({});
+    return res.json(result);
+}
+
+export const getImage = (req, res) => {
+    console.log(req.params);
+    fs.readFile(`../uploads/${req.params.id}`, (err, data) => {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data);
+    });
+};

@@ -17,7 +17,6 @@ export const onlyPublic = (req, res, next) => {
     else {
         next();
     }
-
 }
 
 export const onlyPrivate = (req, res, next) => {
@@ -25,6 +24,6 @@ export const onlyPrivate = (req, res, next) => {
         next();
     }
     else {
-        return res.redirect(route.home);
+        return res.redirect(route.login);
     }
 }

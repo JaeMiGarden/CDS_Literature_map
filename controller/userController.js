@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 const User = mongoose.model('User');
 
 export const getLogin = (req, res) => {
-    return res.render("login.html");
+    return res.render("login");
 };
 
 export const postLogin = passport.authenticate('local', {
@@ -14,7 +14,7 @@ export const postLogin = passport.authenticate('local', {
 });
 
 export const getSignin = (req, res) => {
-    return res.render("signin.html");
+    return res.render("signin");
 };
 
 export const postSignin = async (req, res, next) => {
