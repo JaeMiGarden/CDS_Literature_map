@@ -27,6 +27,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, "templates/"));
 app.use('/uploads', express.static(path.join(__dirname, "./uploads")));
 app.use(express.static(path.join(__dirname, "/templates")));
+app.use('/assets', express.static(path.join(__dirname, '/assets')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookie_parser()); 

@@ -1,0 +1,36 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title 숭문문학지도
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet" type="text/css" href="/stylesheets/map.css")
+    body
+        form(action="/board/write" method="post" autofocus enctype="multipart/form-data")
+            p
+            input(type="text" name="title" placeholder="제목")
+            p 
+            textarea(name="body" rows="4" cols="50" placeholder="본문")
+            p
+            input(type="text" name="author" placeholder="저자")
+            p
+            input(id="lat" type="hidden" name="latitude" value="33.450701")
+            p
+            input(id="lon" type="hidden" name="longitude" value="33.450701")
+            p
+            input(type="file" id="img_file" name="picture" onChange="setThumbnail(event);")
+            div(id="img_wrap")
+            p
+            input(type="submit" value="submit")
+        script(src="/assets/write.js")
+        script.
+            function setThumbnail(event) {
+                var reader = new FileReader(); 
+                reader.onload = function(event) { 
+                    var img = document.createElement("img"); 
+                    img.setAttribute("src", event.target.result); 
+                    document.getElementById("img_wrap").appendChild(img); 
+                };
+                reader.readAsDataURL(event.target.files[0]); 
+            }
+            
