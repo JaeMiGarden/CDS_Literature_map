@@ -1,7 +1,7 @@
 import route from "./routes";
 import multer from 'multer';
 
-const multerPicture = multer({ dest: 'uploads/pictures' });
+const multerPicture = multer({ dest: 'uploads' });
 
 export const uploadPicture = multerPicture.single('picture');
 

@@ -1,48 +1,34 @@
-@media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-    }
-}
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-@font-face { font-family: '62570체'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/62570체.woff') format('woff'); font-weight: normal; font-style: normal; }
-
-
-html,
 body {
-  height: 100%;
-  font-family: '62570체';
-}
+  width:100%;
+  display:-ms-flexbox;
+  display:flex;
 
-body {
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-align: center;
-  align-items: center;
+  position:absolute; 
+  top:0;right:0;bottom:0;left:0;
+  align-items:center;
   justify-content:center;
+
+  -webkit-align-item:center;
+  -webkit-justify-content:center; 
+  background-color: beige;
+
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: beige;
 }
-.title{
-  color: #28A745;
-}
+
 .form-signin {
-  width: 100%;
+  width: 300%;
   max-width: 330px;
   padding: 15px;
   margin: auto;
 }
+
 .form-signin .checkbox {
   font-weight: 400;
 }
 .form-signin .form-control {
+  
   position: relative;
   box-sizing: border-box;
   height: auto;

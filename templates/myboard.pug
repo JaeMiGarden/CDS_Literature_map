@@ -1,0 +1,22 @@
+extends layouts/map
+
+block content
+    ul(id="boardList")
+
+    script.
+        let boardOne = [];
+        let checkFlag = false;
+        const boardList = document.getElementById('boardList');
+        $(document).ready(function(){$.ajax({
+            async:false,
+            type:"POST",
+        url:"/api/board",
+        success:function(res) {
+            res.map((a)=>{
+                console.log(a);
+                var node = document.createElement("li");
+                node.innerHTML = `<a href=${a._id}> ${a.title} </a>`;
+                boardList.appendChild(node);
+            })
+        }});
+        });
