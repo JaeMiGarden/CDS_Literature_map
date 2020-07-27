@@ -5,7 +5,6 @@ import { onlyPrivate } from '../middleware';
 
 const apiRouter = express.Router();
 
-apiRouter.post(route.mapBoard, onlyPrivate,apiPostBoard);
+apiRouter.post(route.mapBoard, apiPostBoard);
 
-apiRouter.get(route.image(), getImage);
 export default apiRouter;
