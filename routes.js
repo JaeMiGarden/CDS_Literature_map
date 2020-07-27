@@ -12,13 +12,13 @@ const BOARD = "/board";
 const BOARD_DETAIL = "/:id";
 const WRITE = "/write";
 const BOARD_DELETE = "/:id/delete";
-
+const BOARD_LIST = "/list";
 //API
 const API = "/api";
 const LOAD_POSTING = "/loadPosting";
 const MAP_BOARD = "/board";
 const IMAGE = "/image/:id";
-
+const TEST = "/test";
 // static
 
 const route = {
@@ -46,10 +46,12 @@ const route = {
             return BOARD_DELETE;
         }
     },
+    board_list: BOARD_LIST,
 
     api: API,
     loadPosting: LOAD_POSTING,
     mapBoard: MAP_BOARD,
+    test:TEST,
 
     image: (id) => {
         if (id) {

@@ -7,7 +7,13 @@ const Board = mongoose.model('Board');
 
 export const getHome = async (req, res) => {
     const board = await Board.find({});
-    return res.render('map', { pageTitle: "Home",board });
+    var user,
+        auth = false;
+    if (req.isAuthenticated()) {
+        auth = true;
+        user = req.user;
+    }
+    return res.render('map', { pageTitle: "Home", board, auth, user});
 }
 
 export const getBoardWrite = (req, res) => {
@@ -60,7 +66,6 @@ export const getBoardDelete = async (req, res) => {
     const {
         params: { id }
     } = req;
-    console.log(id);
     try {
         const board = await Board.findById(id);
         
@@ -72,6 +77,20 @@ export const getBoardDelete = async (req, res) => {
         }); 
         return res.redirect(route.home);
 
+    } catch (error) {
+        console.log(error);
+        return res.redirect(route.home);
+    }
+}
+
+export const getBoardList = async (req, res) => {
+    const {
+        name
+    } = req.user;
+    const user = req.user;
+    try {
+        const board = await Board.find({ author:name });
+        return res.render('myboard', { pageTitle: 'BoardList', board, user });
     } catch (error) {
         console.log(error);
         return res.redirect(route.home);

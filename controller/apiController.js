@@ -7,12 +7,10 @@ export const apiPicture = async (req, res) => {
         params: { id }
     } = req;
     try {
-        console.log("?");
     } catch (error) {
         console.log(error);
         return res.redirect(route.home);
     }
-     
 }
 
 export const apiPostBoard = async (req, res) => {
