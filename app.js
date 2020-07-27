@@ -1,8 +1,6 @@
 import express from 'express';
-import ejs from 'ejs';
 import route from './routes';
 import globalRouter from './router/globalRouter';
-import userRouter from './router/userRouter';
 import path from 'path';
 import passport from 'passport';
 import session from 'express-session';
@@ -15,7 +13,6 @@ import mongoose from 'mongoose';
 import './passport'
 import { localsMiddleware } from './middleware';
 import boardRouter from './router/boardRouter';
-import multer from 'multer';
 import apiRouter from './router/apiRouter';
 
 const app = express();
@@ -45,7 +42,6 @@ app.use(passport.session());
 app.use(localsMiddleware);
 
 app.use(route.home, globalRouter);
-app.use(route.user, userRouter);
 app.use(route.board, boardRouter);
 app.use(route.api, apiRouter);
 export default app;
