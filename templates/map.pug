@@ -17,7 +17,7 @@ block content
         var positions = [
 
         ];
-        $.ajax({
+        $(document).ready(function(){$.ajax({
             async:false,
             type:"POST",
         url:"/api/board",
@@ -30,6 +30,7 @@ block content
             })
             checkFlag = true;
         }});
+        });
         
         if(checkFlag === true){
             for (var i = 0; i < positions.length; i ++) {

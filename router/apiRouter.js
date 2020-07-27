@@ -7,5 +7,4 @@ const apiRouter = express.Router();
 
 apiRouter.post(route.mapBoard, onlyPrivate,apiPostBoard);
 
-apiRouter.get(route.image(), getImage);
 export default apiRouter;

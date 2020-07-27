@@ -2,13 +2,12 @@ import route from "../routes";
 import mongoose from "mongoose";
 import fs from 'fs';
 import path from 'path';
-import jsStringify from 'js-stringify';
 
 const Board = mongoose.model('Board');
 
 export const getHome = async (req, res) => {
     const board = await Board.find({});
-    return res.render('map', { pageTitle: "Home", jsStringify, board });
+    return res.render('map', { pageTitle: "Home",board });
 }
 
 export const getBoardWrite = (req, res) => {
