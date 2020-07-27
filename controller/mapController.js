@@ -43,6 +43,7 @@ export const getBoardRead = async (req, res) => {
     const {
         params: { id }
     } = req;
+    const user = req.user;
     try {
         var posting = await Board.findById(id);
 
@@ -54,7 +55,7 @@ export const getBoardRead = async (req, res) => {
 
     await posting.save();
 
-    return res.render('board', { pageTitle: "board", posting }); 
+    return res.render('board', { pageTitle: "board", posting , user}); 
 
     } catch (error) {
         console.log(error);
