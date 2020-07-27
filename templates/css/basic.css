@@ -1,0 +1,36 @@
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+@font-face { font-family: '62570체'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/62570체.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+html,
+body {
+  height: 100%;
+  font-family: '62570체';
+  background: beige;
+}
+
+.title{
+  color: #28A745 !important; 
+}
+.navbar{
+  background: rgba(255, 255, 255, 0.1)158, 0.1) important;
+}
+
+a:hover{
+  text-decoration: none;
+  color: #28A745;
+}
+a:visited{
+  color:#28A745;
+}
