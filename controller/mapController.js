@@ -17,7 +17,8 @@ export const getHome = async (req, res) => {
 }
 
 export const getBoardWrite = (req, res) => {
-    return res.render('write', {pageTitle: "BoardWriting"});
+    const user = req.user;
+    return res.render('write', {pageTitle: "BoardWriting", user});
 }
 
 export const postBoardWrite = async (req, res) => {
