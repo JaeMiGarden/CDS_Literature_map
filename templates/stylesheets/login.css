@@ -21,7 +21,7 @@ body {
   width: 300%;
   max-width: 330px;
   padding: 15px;
-  margin: auto;
+  margin: 50% auto;
 }
 
 .form-signin .checkbox {
@@ -58,4 +58,11 @@ body {
 }
 .box {
   margin: 10px 0;
+}
+.subtitle{
+  margin: 20px 0;
+  color: #495057 !important;
+}
+a.subtitle:hover{
+  text-decoration: none;
 }
