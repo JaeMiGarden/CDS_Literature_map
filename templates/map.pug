@@ -1,24 +1,23 @@
 extends layouts/map
 
 block content
-    div(id="map")
+    div(id="map", style={})
     script(type="text/javascript"  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac565ac691559f4a03471d5f88e788e8")
     script.
         var checkFlag = false;
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-            mapOption = { 
-                center: new kakao.maps.LatLng(37.551311, 126.945565), // 지도의 중심좌표
-                level: 1 // 지도의 확대 레벨
-            };
-
-        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-        
+        var mapContainer = document.getElementById('map');
         var positions = [];
-        $(document).ready(function(){$.ajax({
+        var mapOption = {
+            center: new kakao.maps.LatLng(37.551311, 126.945565),
+            level:1
+        };
+        $(document).ready(function(){$.ajax({        
             async:false,
             type:"POST",
         url:"/api/board",
         success:function(res) {
+
+            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
             res.map((a)=>{
                 positions.push({
                     content: `<a href=/board/${a._id}>${a.title}</div>`,
@@ -43,11 +42,7 @@ block content
                 kakao.maps.event.addListener(marker, 'click', makeOutListener(infowindow));
             }
         }
-        kakao.maps.event.addListener(map, 'click', (mouseEvent)=>{
-            location.href="/board/write";
-            var latlng = mouseEvent.latLng;
-            console.log(latlng);
-        })
+
         function makeOverListener(map, marker, infowindow) {
             return function() {
                 infowindow.open(map, marker);
@@ -58,3 +53,4 @@ block content
             return function() {
                 infowindow.close();
             };
+        };
