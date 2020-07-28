@@ -15,4 +15,6 @@
 .navbar{
   background: rgba(255, 255, 255, 0.1)158, 0.1 !important;
 }
-
+#navbarNav{
+  justify-content: flex-end;
+}
