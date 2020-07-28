@@ -19,6 +19,9 @@ block content
         input(type="submit" value="submit")
     script(src="/assets/write.js")
     script.
+        var lat = document.getElementById('lat');
+        var lon = document.getElementById('lon');
+
         function setThumbnail(event) {
             var reader = new FileReader(); 
             reader.onload = function(event) { 
@@ -28,3 +31,10 @@ block content
             };
             reader.readAsDataURL(event.target.files[0]); 
         }
+        $(document).ready(function(){if('geolocation' in navigator){
+            navigator.geolocation.getCurrentPosition((position) => {
+                console.log(position);
+                lat.value = position.coords.latitude;
+                lon.value = position.coords.longitude;            
+            });
+        }})
