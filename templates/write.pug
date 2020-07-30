@@ -20,6 +20,9 @@ block content
         button(class="btn btn-lg btn-success btn-block btn-board" type="submit") 작성하기
     script(src="/assets/write.js")
     script.
+        var lat = document.getElementById('lat');
+        var lon = document.getElementById('lon');
+
         function setThumbnail(event) {
             var reader = new FileReader(); 
             reader.onload = function(event) { 
@@ -29,3 +32,10 @@ block content
             };
             reader.readAsDataURL(event.target.files[0]); 
         }
+        $(document).ready(function(){if('geolocation' in navigator){
+            navigator.geolocation.getCurrentPosition((position) => {
+                console.log(position);
+                lat.value = position.coords.latitude;
+                lon.value = position.coords.longitude;            
+            });
+        }})
