@@ -2,21 +2,22 @@ extends layouts/map
 
 block content
     form(action="/board/write" method="post" autofocus enctype="multipart/form-data")
-        p
-        input(type="text" name="title" placeholder="제목")
-        p 
-        textarea(name="body" rows="4" cols="50" placeholder="본문")
-        p
-        input(type="text" name="author" placeholder="저자")
-        p
-        input(id="lat" type="hidden" name="latitude" value="33.450701")
-        p
-        input(id="lon" type="hidden" name="longitude" value="33.450701")
-        p
-        input(type="file" id="img_file" name="picture" onChange="setThumbnail(event);")
-        div(id="img_wrap")
-        p
-        input(type="submit" value="submit")
+        div(class="container mt-5")
+            div(class="input-group mb-3")
+                div(class="input-group-prepend")
+                    span(class="input-group-text" id="inputGroup-sizing-default") 제목 
+                    input(type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default") 
+                div(class="input-group-prepend")
+                    span(class="input-group-text" id="inputGroup-sizing-default") 저자 
+                    input(type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default") 
+
+            div(class="input-group mb-3")
+                form(class="mt-3" method="POST" enctype="multipart/form-data")
+                    div(class="form-group mb-5")
+                        label(for="content" class="mb-5 h5")
+                        textarea(name="q1" class="form-control p-4" id="content") 
+
+        button(class="btn btn-lg btn-success btn-block btn-board" type="submit") 작성하기
     script(src="/assets/write.js")
     script.
         function setThumbnail(event) {
