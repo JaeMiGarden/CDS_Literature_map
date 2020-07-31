@@ -23,6 +23,11 @@
             line-height: 1.5;
             border-radius: .25rem;
         }
+    .post-title{
+        max-width: 100%;
+        margin: 0 5px 0 0;
+    }
+
 }
 #content{
     height:400px; 
@@ -38,4 +43,31 @@
     border-color: #61a761;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(21, 92, 0, 0.25);
-  }
+}
+h3.pagename{
+    padding: 10px 0;
+    font-weight: 600;
+    margin: 0;
+}
+
+.header{
+    display:flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+
+}
+.post-title{
+    width: 500px;
+}
+
+/* 박스 클릭 했을 때 */
+.form-control:focus { 
+    color: #495057;
+    background-color: #fff;
+    border-color: #61a761 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(21, 92, 0, 0.25) !important;
+}
+.input-group-text{
+    font-weight: 600 !important;
+}
