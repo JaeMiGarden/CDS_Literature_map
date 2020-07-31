@@ -1,19 +1,17 @@
 extends layouts/map
 
 block content
-    p
-        label 제목 : #{posting.title}
-    p
-        label 본문 : #{posting.body}
-    p
-        label 저자 : #{posting.author}
-    p
-        label 날짜 : #{posting.date}
-    br
-    
-    img(src=`/uploads/${posting.image}` alt="No image", style={width:'300px', height:'350px'})
+    div(class="container")
+        div(class="write-header")
+            h3(class="post-title") #{posting.title}
+            div(class="info")
+                h3(id="auth") 저자 | #{posting.author}
+                h6(id="date") #{posting.date}
+        br
+        h4(class="content") #{posting.body}
+        img(src=`/uploads/${posting.image}` alt="")
 
-    button(id="delete" type="submit" value="DELETEING") 삭제하기
+    button(class="btn btn-sm btn-success btn-board" id="delete" type="submit" value="DELETEING") 삭제하기
     script.
         function getDelete(){
             $.ajax({

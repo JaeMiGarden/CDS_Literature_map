@@ -29,6 +29,10 @@
     }
 
 }
+.container{
+    position: relative;
+    margin:0 0 10px 0;
+}
 #content{
     height:400px; 
 }
@@ -54,7 +58,7 @@ h3.pagename{
     display:flex;
     justify-content: space-between;
     margin: 0 0 20px 0;
-
+    position: relative;
 }
 .post-title{
     width: 500px;
@@ -71,3 +75,40 @@ h3.pagename{
 .input-group-text{
     font-weight: 600 !important;
 }
+
+
+/* board */
+.write-header{
+    margin: 20px 0 0 0;
+    display:flex;
+    justify-content: space-between;
+    position: relative;
+}
+.post-title{
+    padding: 0 0 10px 0;
+    font-weight: 600;
+    margin: 0;
+}
+.info{
+    bottom:0px;
+    right: 0px;
+    position: absolute;
+}
+#auth{
+    font-size: 20px;
+    text-align: right;
+    margin:0;
+}
+#date{
+    font-size: 15px;
+    color:rgb(151, 151, 151);
+    margin:0;
+}
+
+img{
+    width:100%;
+}
+.btn{
+    display: block !important;
+}
+
