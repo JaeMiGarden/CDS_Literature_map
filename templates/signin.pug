@@ -2,8 +2,8 @@ extends layouts/basic
 
 block content
     form(action="/signin", method="post", class="form-signin")
-        a(class="h3 mb-3 font-weight-normal title" href="/") 숭문문학지도
-        h3(class="h5") 회원가입하기
+        a(class="h3 mb-3 title" href="/") 문학지도
+        h5(class="pagename") 회원가입하기
             br
             br
             input(type="text" id="inputID" class="form-control" name="id" placeholder="아이디" required="" autofocus="")
@@ -12,3 +12,4 @@ block content
             input(type="number" id="inputNumber" name="studentNumber" class="form-control" placeholder="학번" required="")
             br
             input(class="btn btn-lg btn-success btn-block" type="submit" value="회원가입") 
+        a(class="subtitle" href="/login") 이미 회원이신가요?

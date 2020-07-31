@@ -2,10 +2,10 @@ extends layouts/basic
 
 block content
     form(class="form-signin" action="/login", method="post")
-        a(class="h3 mb-3 font-weight-normal title" href="/") 숭문문학지도
-        h3(class="h5") 로그인하기
+        a(class="h3 mb-3 title" href="/") 문학지도
+        h5(class="pagename") 로그인하기
         br
-        input(type="text" id="inputID" class="form-control" name="id" placeholder="아이디" required="" autofocus="")
+        input(type="id" id="inputID" class="form-control" name="id" placeholder="아이디" required="" autofocus="")
         input(type="password" id="inputPassword" class="form-control" name="password" placeholder="비밀번호" required="")
         br
         input(class="btn btn-lg btn-success btn-block" type="submit" value="로그인")

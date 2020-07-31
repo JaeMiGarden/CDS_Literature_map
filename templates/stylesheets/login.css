@@ -1,3 +1,4 @@
+/* basic - login,signin  */
 body {
   width:100%;
   display:-ms-flexbox;
@@ -18,7 +19,7 @@ body {
 }
 
 .form-signin {
-  width: 300%;
+  width: 100%;
   max-width: 330px;
   padding: 15px;
   margin: 50% auto;
@@ -28,7 +29,6 @@ body {
   font-weight: 400;
 }
 .form-signin .form-control {
-  
   position: relative;
   box-sizing: border-box;
   height: auto;
@@ -38,16 +38,7 @@ body {
 .form-signin .form-control:focus {
   z-index: 2;
 }
-.form-signin input[type="id"] input[type="name"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] input[type="number"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
+
 /* 박스 클릭 했을 때 */
 .form-control:focus { 
   color: #495057;
@@ -65,4 +56,16 @@ body {
 }
 a.subtitle:hover{
   text-decoration: none;
+  color: #28A745!important;
+}
+
+/* 제출버튼 */
+.btn-group-lg>.btn, .btn-lg{
+  margin: 0 0 10px 0;
+}
+
+/* 제목 */
+.pagename{
+  margin: 10px 0 0 0;
+  font-weight: 600;
 }

@@ -1,15 +1,17 @@
+/* 전체공유 */
 *{
     box-sizing:border-box;
-    font-family: 'NanumSquare';
+    font-family: 'MapoGoldenPier';
+    color: #495057;
 }
-.nanumsquare { font-family: 'NanumSquare', sans-serif !important; }
 @font-face { font-family: '62570체'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/62570체.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'MapoGoldenPier'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoGoldenPierA.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: '국립박물관문화재단클래식B'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/국립박물관문화재단클래식B.woff') format('woff'); font-weight: normal; font-style: normal; }
 
 html, body{
     margin: 0 0;
     height:100%;
     background: beige;
-    font-family: 'NanumSquare';
 }
 @media (min-width: 500px) {
     .title{
@@ -18,8 +20,9 @@ html, body{
 }
 .title{
     color: #28A745 !important;
-    font-family: '62570체'; 
-    font-size: 50px;
+    font-weight: 800;
+    /*font-family: '62570체';*/ 
+    font-size: 40px;
 }
 a.title:hover{
     text-decoration: none;
