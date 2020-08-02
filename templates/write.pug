@@ -6,16 +6,15 @@ block content
             h3(class="pagename") 글쓰기
             div(class="header")
                 div(class="input-group-prepend post-title")
-                    span(class="input-group-text") 제목 
+                    span(class="input-group-text") 제목
                     input(type="text" name="title" class="form-control") 
-                div(class="input-group-prepend")
-                    span(class="input-group-text") 저자 
+                div(class="input-group-prepend author")
+                    span(class="input-group-text") 저자
                     input(type="text" name="author" class="form-control" ) 
-            form(method="POST" enctype="multipart/form-data")
-                div(class="form-group")
-                    textarea(name="body" class="form-control p-4" id="content") 
             div(class="form-group")
-                input(type="file" name="file" class="form-control-file")
+                textarea(name="body" class="form-control p-4" id="content") 
+            div(class="form-group")
+                input(type="file" name="picture" class="form-control-file")
         button(class="btn btn-lg btn-success btn-block btn-board" type="submit") 작성하기
     script(src="/assets/write.js")
     script.

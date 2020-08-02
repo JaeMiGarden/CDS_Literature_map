@@ -60,9 +60,6 @@ h3.pagename{
     margin: 0 0 20px 0;
     position: relative;
 }
-.post-title{
-    width: 500px;
-}
 
 /* 박스 클릭 했을 때 */
 .form-control:focus { 
@@ -85,9 +82,12 @@ h3.pagename{
     position: relative;
 }
 .post-title{
-    padding: 0 0 10px 0;
     font-weight: 600;
-    margin: 0;
+    margin: 0 10px 0 0;
+    width: 67%;
+}
+.author{
+    width: 30%;
 }
 .info{
     bottom:0px;
