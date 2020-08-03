@@ -1,7 +1,6 @@
 import express from 'express';
 import route from '../routes';
 import { apiPostBoard, apiGetTotalBoard } from '../controller/apiController';
-import { onlyPrivate } from '../middleware';
 
 const apiRouter = express.Router();
 

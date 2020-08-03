@@ -10,7 +10,7 @@ block content
                     input(type="text" name="title" class="form-control" required="") 
                 div(class="input-group-prepend author")
                     span(class="input-group-text" ) 저자
-                    input(type="text" name="author" class="form-control" id="author" value=`${user.id}` required="")
+                    input(type="text" name="nickname" class="form-control" id="author" value=`${user.id}` required="")
             div(class="form-group")
                 textarea(name="body" class="form-control p-4" id="content") 
             div(class="form-group")
@@ -18,6 +18,9 @@ block content
             div(class="location" style="display:none")
                 input(id="lat" name="latitude")
                 input(id="lon" name="longitude")
+                input(id="name" name="author" value=`${user.id}`)
+                input(id="authorNumber" name="authorNumber" value=`${user.studentNumber}`)
+            
         button(class="btn btn-lg btn-success btn-block btn-board" type="submit") 작성하기
     script(src="/assets/write.js")
     script.
