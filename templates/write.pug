@@ -18,9 +18,8 @@ block content
             div(class="location" style="display:none")
                 input(id="lat" name="latitude")
                 input(id="lon" name="longitude")
-                input(id="name" name="author" value=`${user.id}`)
+                input(id="name" name="author" value=`${user.name}`)
                 input(id="authorNumber" name="authorNumber" value=`${user.studentNumber}`)
-            
         button(class="btn btn-lg btn-success btn-block btn-board" type="submit") 작성하기
     script(src="/assets/write.js")
     script.
@@ -38,7 +37,6 @@ block content
         }
         $(document).ready(function(){if('geolocation' in navigator){
             navigator.geolocation.getCurrentPosition((position) => {
-                console.log(position);
                 lat.value = position.coords.latitude;
                 lon.value = position.coords.longitude;            
             });

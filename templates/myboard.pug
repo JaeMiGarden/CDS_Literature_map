@@ -15,7 +15,6 @@ block content
         url:"/api/board",
         success:function(res) {
             res.map((a)=>{
-                console.log(a);
                 var node = document.createElement("li");
                 node.innerHTML = `
                     <div class="card mb-4 shadow-sm" onclick="location.href='${a._id}'" style="cursor:pointer;">
