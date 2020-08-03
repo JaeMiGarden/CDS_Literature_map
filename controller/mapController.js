@@ -2,6 +2,10 @@ import route from "../routes";
 import mongoose from "mongoose";
 import fs from 'fs';
 import path from 'path';
+import moment from 'moment';
+import 'moment-timezone';
+
+moment.tz.setDefault("Asia/Seoul");
 
 const Board = mongoose.model('Board');
 
@@ -22,6 +26,8 @@ export const getBoardWrite = (req, res) => {
 }
 
 export const postBoardWrite = async (req, res) => {
+    const date = moment().format('YYYY-MM-DD HH:mm:ss');
+
     const {
         body: { nickname, title, body, author, authorNumber, latitude, longitude },
         file: { filename }
@@ -29,7 +35,7 @@ export const postBoardWrite = async (req, res) => {
     const votes = 0;
     try {
         const board = await new Board({
-            title, body, author, authorNumber,latitude, longitude, nickname,
+            title, body, author, authorNumber,latitude, longitude, nickname, date,
             image:filename
         });
         console.log(board);

@@ -8,7 +8,7 @@ const BoardSchema = new mongoose.Schema({
     authorNumber:String,
 
     nickname:String,
-    date: { type: Date, default: Date.now },
+    date: String,
     latitude: Number,
     longitude : Number,
     votes: { type: Number, default: 0 }
