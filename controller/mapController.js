@@ -99,3 +99,7 @@ export const getBoardList = async (req, res) => {
         return res.redirect(route.home);
     }
 }
+
+export const getMain = async (req, res) => {
+    return res.render('main', { pageTitle: "main" });
+}

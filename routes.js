@@ -3,6 +3,7 @@ const HOME = "/";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
 const SiGNIN = "/signin";
+const MAIN = "/main";
 
 // USER
 const USER = "/user";
@@ -21,6 +22,7 @@ const IMAGE = "/image/:id";
 // static
 
 const route = {
+    main:MAIN,
     home: HOME,
     login : LOGIN,
     signin: SiGNIN,
