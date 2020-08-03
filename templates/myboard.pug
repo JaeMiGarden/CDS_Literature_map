@@ -2,6 +2,8 @@ extends layouts/map
 
 block content
     ul(id="boardList")
+        h3(class="pagename") 내가 쓴 글
+
 
     script.
         let boardOne = [];
@@ -15,7 +17,15 @@ block content
             res.map((a)=>{
                 console.log(a);
                 var node = document.createElement("li");
-                node.innerHTML = `<a href=${a._id}> ${a.title} </a>`;
+                node.innerHTML = `
+                    <div class="card mb-4 shadow-sm" onclick="location.href='${a._id}'" style="cursor:pointer;">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" src="${a.image}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">이미지를 불러올 수 없습니다.</text></svg>
+                                <div class="card-body">
+                                    <p class="post-title">${a.title}</p>
+                                    <p class="card-text"> ${a.body}</p>
+                                </div>
+                    </div>
+                                    `;
                 boardList.appendChild(node);
             })
         }});

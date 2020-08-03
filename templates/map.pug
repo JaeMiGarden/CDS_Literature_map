@@ -1,9 +1,28 @@
 extends layouts/map
 
 block content
-    div(id="map", style={})
+    div(class="select-view")
+        button(class="btn btn-lg btn-success" id="map-view") 지도뷰
+        button(class="btn btn-lg btn-success" id="card-view") 카드뷰
+    div(id="map" style="")
+    div(id="board" style="display:none")
+        ul(id="boardList")
+        h3(class="pagename") 전체 글 보기
+
     script(type="text/javascript"  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac565ac691559f4a03471d5f88e788e8")
     script.
+        var mapview = document.getElementById('map-view');
+        var cardview = document.getElementById('card-view');
+
+        mapview.onclick = function(){
+            board.style.display = 'none';
+            map.style.display = '';
+        }
+        cardview.onclick = function(){
+            map.style.display = 'none';
+            board.style.display = '';        
+        }
+
         var checkFlag = false;
         var mapContainer = document.getElementById('map');
         var positions = [];
@@ -54,3 +73,4 @@ block content
                 infowindow.close();
             };
         };
+       
