@@ -14,3 +14,9 @@ export const apiPostBoard = async (req, res) => {
         return res.sendStatus(200);
     }
 }
+
+export const apiGetTotalBoard = async (req, res) => {
+    const result = await Board.find({});
+    console.log(result);
+    return res.json(result);
+}
