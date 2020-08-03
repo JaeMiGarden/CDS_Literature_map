@@ -19,6 +19,7 @@ const API = "/api";
 const LOAD_POSTING = "/loadPosting";
 const MAP_BOARD = "/board";
 const IMAGE = "/image/:id";
+const TOTAL_BOARD = "/totalBoard";
 // static
 
 const route = {
@@ -52,7 +53,7 @@ const route = {
     api: API,
     loadPosting: LOAD_POSTING,
     mapBoard: MAP_BOARD,
-
+    totalBoard: TOTAL_BOARD,
     image: (id) => {
         if (id) {
             return `/api/image/${id}`;
