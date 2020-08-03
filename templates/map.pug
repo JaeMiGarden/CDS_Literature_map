@@ -32,8 +32,8 @@ block content
         };
         $(document).ready(function(){$.ajax({        
             async:false,
-            type:"POST",
-        url:"/api/board",
+            type:"GET",
+        url:"/api/totalBoard",
         success:function(res) {
 
             var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
