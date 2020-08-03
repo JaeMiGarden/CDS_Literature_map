@@ -1,13 +1,10 @@
 extends layouts/map
 
 block content
-    div(class="select-view")
-        button(class="btn btn-lg btn-success" id="map-view") 지도뷰
-        button(class="btn btn-lg btn-success" id="card-view") 카드뷰
     div(id="map" style="")
     div(id="board" style="display:none")
         ul(id="boardList")
-        h3(class="pagename") 전체 글 보기
+            h3(class="pagename" ) 전체 글 보기
 
     script(type="text/javascript"  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac565ac691559f4a03471d5f88e788e8")
     script.
