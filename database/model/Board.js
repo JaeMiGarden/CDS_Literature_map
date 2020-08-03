@@ -5,6 +5,9 @@ const BoardSchema = new mongoose.Schema({
     title: String,
     body: String,
     author: String,
+    authorNumber:String,
+
+    nickname:String,
     date: { type: Date, default: Date.now },
     latitude: Number,
     longitude : Number,
