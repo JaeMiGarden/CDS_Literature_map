@@ -26,6 +26,7 @@ export const getBoardWrite = (req, res) => {
 }
 
 export const postBoardWrite = async (req, res) => {
+console.log("?");
     const date = moment().format('YYYY-MM-DD HH:mm:ss');
 
     const {
