@@ -1,5 +1,6 @@
 import express from 'express';
-import route from '../routes';
+import route from '../router/routes';
+
 import { apiPostBoard, apiGetTotalBoard } from '../controller/apiController';
 
 const apiRouter = express.Router();

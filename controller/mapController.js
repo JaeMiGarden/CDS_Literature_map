@@ -1,4 +1,4 @@
-import route from "../routes";
+import route from "../router/routes";
 import mongoose from "mongoose";
 import fs from 'fs';
 import path from 'path';

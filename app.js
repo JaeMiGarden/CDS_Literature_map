@@ -1,6 +1,5 @@
 import express from 'express';
-import route from './routes';
-import globalRouter from './router/globalRouter';
+import route from './router/routes';
 import path from 'path';
 import passport from 'passport';
 import session from 'express-session';
@@ -10,8 +9,10 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import MongoStore from 'connect-mongo';
 import mongoose from 'mongoose';
-import './passport'
-import { localsMiddleware } from './middleware';
+import './auth/passport'
+import { localsMiddleware } from './middleware/middleware';
+
+import globalRouter from './router/globalRouter';
 import boardRouter from './router/boardRouter';
 import apiRouter from './router/apiRouter';
 

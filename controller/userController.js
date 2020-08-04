@@ -1,4 +1,4 @@
-import route from '../routes';
+import route from '../router/routes';
 import passport from 'passport';
 import mongoose from 'mongoose';
 

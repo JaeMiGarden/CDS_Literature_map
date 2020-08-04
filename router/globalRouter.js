@@ -1,7 +1,7 @@
 import express from 'express';
-import route from '../routes';
-import path from 'path';
-import { onlyPublic, onlyPrivate } from '../middleware';
+import route from '../router/routes';
+import { onlyPublic, onlyPrivate } from '../middleware/middleware';
+
 import { getLogin, postLogin, getSignin, postSignin, getLogout } from '../controller/userController';
 import { getHome, getMain } from '../controller/mapController';
 

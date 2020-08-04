@@ -1,7 +1,7 @@
 import express from 'express';
-import route from '../routes';
+import route from '../router/routes';
 import { getBoardRead, postBoardWrite, getBoardWrite, getBoardDelete, getBoardList } from '../controller/mapController';
-import { onlyPrivate, uploadPicture } from '../middleware';
+import { onlyPrivate, uploadPicture } from '../middleware/middleware';
 
 const boardRouter = express.Router();
 
