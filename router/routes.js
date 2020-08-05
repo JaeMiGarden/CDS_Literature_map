@@ -20,6 +20,7 @@ const LOAD_POSTING = "/loadPosting";
 const MAP_BOARD = "/board";
 const IMAGE = "/image/:id";
 const TOTAL_BOARD = "/totalBoard";
+const VERIFY_ID = "/verifyId";
 // static
 
 const route = {
@@ -60,7 +61,8 @@ const route = {
         } else {
             return IMAGE;
         }
-    }
+    },
+    verifyId: VERIFY_ID,
 };
 
 export default route;

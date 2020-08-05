@@ -12,6 +12,13 @@ UserSchema.methods.verifyPassword = (password1, password2) => {
     return password1 === password2;
 }
 
+UserSchema.methods.verfiyId = async (newId) => {
+    const isUser= await User.exists({
+        id:newId
+    })
+    console.log(user);
+    return !isUser;
+}
 const User = mongoose.model('User', UserSchema);
 
 export default User;
