@@ -1,5 +1,6 @@
 import express from 'express';
 import route from './router/routes';
+import globalRouter from './router/globalRouter';
 import path from 'path';
 import passport from 'passport';
 import session from 'express-session';
