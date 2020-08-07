@@ -1,6 +1,5 @@
 import express from 'express';
 import route from './router/routes';
-import globalRouter from './router/globalRouter';
 import path from 'path';
 import passport from 'passport';
 import session from 'express-session';
@@ -17,6 +16,8 @@ import globalRouter from './router/globalRouter';
 import boardRouter from './router/boardRouter';
 import apiRouter from './router/apiRouter';
 
+import { stream } from './config/winston';
+
 const app = express();
 
 const CookieStore = MongoStore(session);
@@ -30,7 +31,7 @@ app.use('/assets', express.static(path.join(__dirname, '/assets')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookie_parser()); 
-app.use(morgan("dev"));
+app.use(morgan('HTTP/:http-version :method :remote-addr :url :remote-user :status :res[content-length] :referrer :user-agent :response-time ms', { stream }));
 
 app.use(session({
     secret: 'munhak',

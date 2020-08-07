@@ -15,7 +15,11 @@ export const apiPostBoard = async (req, res) => {
 }
 
 export const apiGetTotalBoard = async (req, res) => {
-    const result = await Board.find({});
+    const {
+        start, end
+    } = req.query;
+
+    const result = await Board.find({}).skip(start).limit(end - start);
     return res.json(result);
 }
 
