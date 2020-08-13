@@ -34,11 +34,12 @@ div(class="text-right")
                     li(class="nav-item")   
                         a(class="nav-link" onClick='location.href="/signin"') 회원가입
                 else 
-                    li(class="nav-item")
-                        a(class="nav-link" onClick='location.href="/logout"') 로그아웃
+                    li(class="nav-item") 
+                        a(class="nav-link") #{user.name}님 환영합니다
                     li(class="nav-item")
                         a(class="nav-link" onClick='location.href="/board/write"') 글쓰기
                     li(class="nav-item")
                         a(class="nav-link" onClick='location.href="/board/list"') 내가 쓴 글 보기
-                    li(class="nav-item") 
-                        a(class="nav-link") #{user.name}님 환영합니다
+                    li(class="nav-item")
+                        a(class="nav-link" onClick='location.href="/logout"') 로그아웃
+                    
