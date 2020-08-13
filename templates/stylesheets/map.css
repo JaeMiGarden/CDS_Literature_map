@@ -125,10 +125,6 @@ ul li{
     float: left;
     margin-right:20px;
 }
-a.post-title, a.post-title:hover, a.post-title:visited{
-    text-decoration: none;
-    color: #28A745;
-}
 
 /* map */
 .select-view{
