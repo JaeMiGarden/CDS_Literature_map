@@ -17,8 +17,8 @@ block content
             res.map((a)=>{
                 var node = document.createElement("li");
                 node.innerHTML = `
-                    <div class="card mb-4 shadow-sm" onclick="location.href='${a._id}'" style="cursor:pointer;">
-                        <img class="bd-placeholder-img card-img-top"" src="${a.image}"></img>
+                    <div class="card mb-4 shadow-sm" onclick="location.href='read/${a._id}'" style="cursor:pointer;">
+                        <img class="bd-placeholder-img card-img-top" src="/uploads/${a.image}"></img>
                             <div class="card-body">
                                 <p class="post-title">${a.title}</p>
                                 <p class="card-text"> ${a.body}</p>
