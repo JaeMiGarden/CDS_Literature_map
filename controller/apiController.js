@@ -1,5 +1,10 @@
 import Board from '../database/model/Board';
 import User from '../database/model/User';
+import pdfDocument from 'pdfkit';
+import fs from 'fs';
+import path from 'path';
+
+import route from '../router/routes';
 
 export const apiPostBoard = async (req, res) => {
     if (req.isAuthenticated()) {
@@ -37,4 +42,42 @@ export const apiGetUserExist = async (req, res) => {
             status: false
         });
     }
+}
+
+export const apiGetPdfCreate = async (req, res) => {
+    const doc = new pdfDocument();
+    
+    const {
+        id
+    } = req.params;
+
+    try {
+        var posting = await Board.findById(id);
+
+    const {
+        body, author, date, votes, image, title,
+    } = posting;
+
+    // doc.pipe(fs.createWriteStream(`uploads/${title}.pdf`));
+        doc.info.Title = title;
+        doc.info.Author = author;
+        doc.info.date = date;
+
+        doc.pipe(res);
+        const imagePath = path.join(__dirname, `../uploads/${image}`);
+            doc.image(imagePath, {
+                fit: [300, 300],
+                align: 'center',
+                valign:'center'
+            })          
+        doc.fontSize(25).text(`Title : ${title}`);
+        doc.fontSize(15).text(`Body : ${body}`);
+        doc.fontSize(10).text(`Author : ${author} Date : ${date}`);
+
+    doc.end();
+    } catch (error) {
+        console.log(error);
+        return res.redirect(route.home);
+    };
+
 }
