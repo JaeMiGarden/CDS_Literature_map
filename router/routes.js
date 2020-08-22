@@ -13,6 +13,7 @@ const BOARD = "/board";
 const BOARD_DETAIL = "/:id";
 const WRITE = "/write";
 const BOARD_DELETE = "/delete/:id";
+const BOARD_READ = "/read/:id";
 const BOARD_LIST = "/list";
 //API
 const API = "/api";
@@ -21,6 +22,7 @@ const MAP_BOARD = "/board";
 const IMAGE = "/image/:id";
 const TOTAL_BOARD = "/totalBoard";
 const VERIFY_ID = "/verifyId";
+const PDF_CREATE = "/pdf/:id";
 // static
 
 const route = {
@@ -35,10 +37,10 @@ const route = {
     board: BOARD,
     read: (id) => {
         if (id) {
-            return `/board/${id}`;
+            return `/board/read/${id}`;
         }
         else {
-            return BOARD_DETAIL;
+            return BOARD_READ;
         }
     },
     write: WRITE,
@@ -51,6 +53,7 @@ const route = {
     },
     board_list: BOARD_LIST,
 
+    // API
     api: API,
     loadPosting: LOAD_POSTING,
     mapBoard: MAP_BOARD,
@@ -63,6 +66,7 @@ const route = {
         }
     },
     verifyId: VERIFY_ID,
+    pdfCreate : PDF_CREATE,
 };
 
 export default route;

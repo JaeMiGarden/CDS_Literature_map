@@ -11,6 +11,8 @@ block content
         h4(class="content") #{posting.body}
         img(src=`/uploads/${posting.image}` alt="")
 
+    a(href=`/api/pdf/${posting.id}` download=`${posting.title}.pdf`) pdf 다운로드
+
     button(class="btn btn-sm btn-success btn-board" id="delete" type="submit" value="DELETEING") 삭제하기
     script.
         function getDelete(){

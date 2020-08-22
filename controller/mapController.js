@@ -26,7 +26,6 @@ export const getBoardWrite = (req, res) => {
 }
 
 export const postBoardWrite = async (req, res) => {
-console.log("?");
     const date = moment().format('YYYY-MM-DD HH:mm:ss');
 
     const {
@@ -39,7 +38,6 @@ console.log("?");
             title, body, author, authorNumber,latitude, longitude, nickname, date,
             image:filename
         });
-        console.log(board);
         await board.save();
         return res.redirect(route.home);
     } catch(error){
