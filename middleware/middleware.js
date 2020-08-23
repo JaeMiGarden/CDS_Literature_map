@@ -1,7 +1,7 @@
 import route from "../router/routes";
 import multer from 'multer';
 
-const multerPicture = multer({ dest: 'uploads' });
+const multerPicture = multer({ dest: 'uploads', limits:{fileSize: 65536 * 65536} });
 
 export const uploadPicture = multerPicture.single('picture');
 
