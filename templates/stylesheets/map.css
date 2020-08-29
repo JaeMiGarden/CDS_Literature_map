@@ -39,6 +39,7 @@
 .container{
     position: relative;
     margin:0 0 10px 0;
+    padding-bottom: 100px;
 }
 #content{
     height:400px; 
@@ -81,7 +82,7 @@ h3.pagename{
 }
 
 
-/* board */
+/* board = read*/
 .write-header{
     margin: 20px 0 0 0;
     display:flex;
@@ -118,12 +119,27 @@ img{
 .btn{
     display: block !important;
 }
-
+.read_img{
+    width:50%;
+}
+.contents{
+    display: flex;
+    padding:20px;
+}
+.content{
+    padding-left: 10px;
+}
 /* myboard */
 ul li{
     list-style-type: none;
     float: left;
     margin-right:20px;
+    max-width: 300px;
+}
+ul{
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
 }
 
 /* map */
