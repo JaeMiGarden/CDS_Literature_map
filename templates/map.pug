@@ -2,9 +2,10 @@ extends layouts/map
 
 block content
     div(id="map" style="")
-    div(id="board" style="display:none")
+    div(class="container" id="board" style="display:none")
+        h3(class="pagename" ) 전체 글 보기
         ul(id="boardList")
-            h3(class="pagename" ) 전체 글 보기
+                
 
     script(type="text/javascript"  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac565ac691559f4a03471d5f88e788e8")
     script.
@@ -39,6 +40,17 @@ block content
                     content: `<a href=/board/${a._id}>${a.title}</div>`,
                     latlng: new kakao.maps.LatLng(a.latitude, a.longitude)
                 });
+                var node = document.createElement("li");
+                node.innerHTML = `
+                    <div class="card mb-4 shadow-sm" onclick="location.href='read/${a._id}'" style="cursor:pointer;">
+                        <img class="bd-placeholder-img card-img-top" src="/uploads/${a.image}"></img>
+                            <div class="card-body">
+                                <p class="post-title">${a.title}</p>
+                                <p class="card-text"> ${a.body}</p>
+                            </div>
+                    </div>
+                                    `;
+                boardList.appendChild(node);
             })
             checkFlag = true;
         }});
@@ -70,4 +82,5 @@ block content
                 infowindow.close();
             };
         };
-       
+
+        

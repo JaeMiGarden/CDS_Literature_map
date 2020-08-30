@@ -8,12 +8,12 @@ block content
                 h3(id="auth") 저자 | #{posting.author}
                 h6(id="date") #{posting.date}
         br
-        h4(class="content") #{posting.body}
-        img(src=`/uploads/${posting.image}` alt="")
-
-    a(href=`/api/pdf/${posting.id}` download=`${posting.title}.pdf`) pdf 다운로드
-
-    button(class="btn btn-sm btn-success btn-board" id="delete" type="submit" value="DELETEING") 삭제하기
+        div(class="contents")
+            img(src=`/uploads/${posting.image}` alt="/templates/files/unnamed.gif" class="read_img")
+            h4(class="content") #{posting.body}
+        a(href=`/api/pdf/${posting.id}` download=`${posting.title}.pdf` class="btn btn-sm btn-success btn-board") pdf 다운로드
+        br
+        button(class="btn btn-sm btn-success btn-board" id="delete" type="submit" value="DELETEING") 삭제하기
     script.
         function getDelete(){
             $.ajax({
