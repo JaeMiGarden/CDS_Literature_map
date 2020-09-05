@@ -81,7 +81,7 @@ block content
                 });
                 kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(marker, infowindow));
                 kakao.maps.event.addListener(marker, 'click', makeOutListener(infowindow));
-                kakao.maps.event.addListener(marker, 'touchstart', makeOutListener(marker, infowindow));
+                kakao.maps.event.addListener(marker, 'touchstart', makeOverListener(marker, infowindow));
             }
         }                
         
