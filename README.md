@@ -10,5 +10,5 @@
 | 😁 | Name | Hobby | Contribution |
 |----|------|-------|--------------|
 |😁| [김재원](https://github.com/asomeJay)|개발하기<br/> 왠만하면 다 좋아함.| Back-End & Infra|
-|😁| [이미정](https://github.com/majung2)|HOBBY! | Front-End & Web-Design|
+|😁| [이미정](https://github.com/majung2)|뮤지컬!<br/>[유튜브▶](https://www.youtube.com/channel/UC5ZxjgDNfpSqcmMHGO7mnmg)| Front-End & Web-Design|
 
