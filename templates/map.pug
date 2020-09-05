@@ -37,15 +37,18 @@ block content
             res.map((a)=>{
                 
                 if(!a.latitude || !a.longitude){
+                    var latlng = new kakao.maps.LatLng(0.0,0.0);
                     positions.push({
                         content: `<a href=/board/${a._id}>${a.title}</div>`,
-                        latlng: new kakao.maps.LatLng(0.0, 0.0)
+                        latlng
                     });
                 }
                 else {
+                    var latlng = new kakao.maps.LatLng(a.latitude, a.longitude);
+
                     positions.push({
                         content: `<a href=/board/${a._id}>${a.title}</div>`,
-                        latlng: new kakao.maps.LatLng(a.latitude, a.longitude)
+                        latlng
                     });
                 } 
                 /* var node = document.createElement("li");
@@ -77,6 +80,8 @@ block content
                 });
                 kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
                 kakao.maps.event.addListener(marker, 'click', makeOutListener(infowindow));
+
+                infoWindow.open(map, marker);
             }
         }                
         
