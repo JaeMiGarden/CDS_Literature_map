@@ -21,7 +21,6 @@ block content
             board.style.display = '';        
         }
 
-        var checkFlag = false;
         var mapContainer = document.getElementById('map');
         var positions = [];
         var mapOption = {
@@ -48,7 +47,7 @@ block content
                         latlng: new kakao.maps.LatLng(a.latitude, a.longitude)
                     });
                 } 
-                var node = document.createElement("li");
+                /* var node = document.createElement("li");
                 node.innerHTML = `
                     <div class="card mb-4 shadow-sm" onclick="location.href='read/${a._id}'" style="cursor:pointer;">
                         <img class="bd-placeholder-img card-img-top" src="/uploads/${a.image}"></img>
@@ -58,26 +57,28 @@ block content
                             </div>
                     </div>
                                     `;
-                boardList.appendChild(node);
+                boardList.appendChild(node); */
             })
-            checkFlag = true;
+            console.log(positions);
+            markerMaker(positions);
         }});
         });
-        
-        if(checkFlag === true){
-            for (var i = 0; i < positions.length; i ++) {
+
+        function markerMaker(markerPositions){
+            for (var i = 0; i < markerPositions.length; i ++) {
                 var marker = new kakao.maps.Marker({
                     map: map, // 마커를 표시할 지도
-                    position: positions[i].latlng // 마커의 위치
+                    position: markerPositions[i].latlng // 마커의 위치
                 });
 
                 var infowindow = new kakao.maps.InfoWindow({
-                    content: positions[i].content // 인포윈도우에 표시할 내용
+                    content: markerPositions[i].content // 인포윈도우에 표시할 내용
                 });
                 kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
                 kakao.maps.event.addListener(marker, 'click', makeOutListener(infowindow));
             }
-        }
+        }                
+        
 
         function makeOverListener(map, marker, infowindow) {
             return function() {
