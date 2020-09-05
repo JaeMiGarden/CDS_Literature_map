@@ -27,21 +27,8 @@ block content
         button(class="btn btn-lg btn-success btn-block btn-board" type="submit") 저장하기
     script(src="/assets/write.js")
     script.
-        //- var lat = document.getElementById('lat');
-        //- var lon = document.getElementById('lon');
-        var lat = 0;
-        var lon = 0;
-
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(function(position) {
-            
-            lat = position.coords.latitude, // 위도
-            lon = position.coords.longitude; // 경도
-            
-            });
-        } else {
-            console.log("Cant use geolocation");
-        }
+        var lat = document.getElementById('lat');
+        var lon = document.getElementById('lon');
 
         function setThumbnail(event) {
             var reader = new FileReader(); 
@@ -52,7 +39,7 @@ block content
             };
             reader.readAsDataURL(event.target.files[0]); 
         }
-        $(document).ready(function(){if('geolocation' in navigator){
+        $(document).ready(function(){if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition((position) => {
                 lat.value = position.coords.latitude;
                 lon.value = position.coords.longitude;            
