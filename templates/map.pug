@@ -27,13 +27,16 @@ block content
             center: new kakao.maps.LatLng(37.551311, 126.945565),
             level:1
         };
+
+
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
+
         $(document).ready(function(){$.ajax({        
             async:false,
             type:"GET",
         url:"/api/totalBoard",
         success:function(res) {
 
-            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
             res.map((a)=>{
                 
                 if(!a.latitude || !a.longitude){
@@ -63,7 +66,6 @@ block content
                                     `;
                 boardList.appendChild(node); */
             })
-            console.log(positions);
             markerMaker(positions);
         }});
         });
@@ -78,15 +80,13 @@ block content
                 var infowindow = new kakao.maps.InfoWindow({
                     content: markerPositions[i].content // 인포윈도우에 표시할 내용
                 });
-                kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+                kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(marker, infowindow));
                 kakao.maps.event.addListener(marker, 'click', makeOutListener(infowindow));
-
-                infoWindow.open(map, marker);
             }
         }                
         
 
-        function makeOverListener(map, marker, infowindow) {
+        function makeOverListener(marker, infowindow) {
             return function() {
                 infowindow.open(map, marker);
             };
