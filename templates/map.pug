@@ -36,6 +36,9 @@ block content
 
             var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
             res.map((a)=>{
+                if(!a.latitude || !a.longitude) 
+                    continue;
+                    
                 positions.push({
                     content: `<a href=/board/${a._id}>${a.title}</div>`,
                     latlng: new kakao.maps.LatLng(a.latitude, a.longitude)
