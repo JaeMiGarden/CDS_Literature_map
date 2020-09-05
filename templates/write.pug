@@ -29,7 +29,12 @@ block content
     script.
         var lat = document.getElementById('lat');
         var lon = document.getElementById('lon');
-
+        if('geolocation' in navigator){
+            navigator.geolocation.getCurrentPosition((position)=>{
+                lat = position.coords.latitude;
+                lon = position.coords.longitude;
+            })
+        }
         function setThumbnail(event) {
             var reader = new FileReader(); 
             reader.onload = function(event) { 
