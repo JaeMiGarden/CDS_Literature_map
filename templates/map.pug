@@ -42,7 +42,7 @@ block content
                 if(!a.latitude || !a.longitude){
                     var latlng = new kakao.maps.LatLng(0.0,0.0);
                     positions.push({
-                        content: `<a href=/board/read/${a._id}>${a.title}</div>`,
+                        content: `<div class="nolabel"><a href=/board/read/${a._id}>${a.title}</a></div>`,
                         latlng
                     });
                 }
@@ -50,7 +50,7 @@ block content
                     var latlng = new kakao.maps.LatLng(a.latitude, a.longitude);
 
                     positions.push({
-                        content: `<a href=/board/read/${a._id}>${a.title}</div>`,
+                        content: `<div class ="label"><a href=/board/read/${a._id}>${a.title}</a></div>`,
                         latlng
                     });
                 } 
@@ -71,6 +71,7 @@ block content
         });
 
         function markerMaker(){
+            
             for (var i = 0; i < positions.length; i ++) {
                 var marker = new kakao.maps.Marker({
                     map, // 마커를 표시할 지도
@@ -82,9 +83,14 @@ block content
                 });
                 kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(marker, infowindow));
                 kakao.maps.event.addListener(marker, 'click', makeOutListener(infowindow));
-                kakao.maps.event.addListener(marker, 'touchstart', makeOverListener(marker, infowindow));
-                kakao.maps.event.addListener(marker, 'touchend', makeOverListener(marker, infowindow));
             }
+
+            const labels = document.getElementsByClassName("label");
+            labels.map(x=>{
+                x.addEventListener('touchstart', () => {
+                    console.log('touchstart');
+                })
+            })
         }                
         
 
