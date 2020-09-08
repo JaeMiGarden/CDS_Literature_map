@@ -38,11 +38,18 @@ block content
         success:function(res) {
 
             res.map((a)=>{
-                
+                var label = document.createElement('label');
+                var newContent = `<a href=/board/read/${a._id}>${a.title}</a></div>`;
+                label.appendChild(newContent);
+
+                label.addEventListener('touchstart', () =>{
+                    console.log("?aaaaa");
+                })
+
                 if(!a.latitude || !a.longitude){
                     var latlng = new kakao.maps.LatLng(0.0,0.0);
                     positions.push({
-                        content: `<div class="nolabel"><a href=/board/read/${a._id}>${a.title}</a></div>`,
+                        content: label,
                         latlng
                     });
                 }
@@ -50,7 +57,7 @@ block content
                     var latlng = new kakao.maps.LatLng(a.latitude, a.longitude);
 
                     positions.push({
-                        content: `<div class ="label"><a href=/board/read/${a._id}>${a.title}</a></div>`,
+                        content: label,
                         latlng
                     });
                 } 
@@ -84,13 +91,6 @@ block content
                 kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(marker, infowindow));
                 kakao.maps.event.addListener(marker, 'click', makeOutListener(infowindow));
             }
-
-            const labels = document.getElementsByClassName("label");
-            labels.map(x=>{
-                x.addEventListener('touchstart', () => {
-                    console.log('touchstart');
-                })
-            })
         }                
         
 
