@@ -70,7 +70,7 @@ export const getBoardRead = async (req, res) => {
     };
 }
 
-export const getBoardDelete = async (req, res) => {
+export const boardDelete = async (req, res) => {
     const {
         params: { id }
     } = req;

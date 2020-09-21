@@ -12,7 +12,7 @@ const USER = "/user";
 const BOARD = "/board";
 const BOARD_DETAIL = "/:id";
 const WRITE = "/write";
-const BOARD_DELETE = "/delete/:id";
+const BOARD_DELETE = "/:id";
 const BOARD_READ = "/read/:id";
 const BOARD_LIST = "/list";
 //API
@@ -46,7 +46,7 @@ const route = {
     write: WRITE,
     delete: (id) => {
         if (id) {
-            return `/board/delete/${id}`;
+            return `/board/${id}`;
         } else {
             return BOARD_DELETE;
         }

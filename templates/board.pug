@@ -18,11 +18,14 @@ block content
         function getDelete(){
             $.ajax({
                 async:false,
-                type:"get",
-                url: `/board/delete/#{posting.id}`,
+                type:"delete",
+                url: "/board/'!{posting.id}`",
                 success:function(res){
                     location.href='../';
-                }
+                },
+                fail:function(res){
+                    location.href='../';
+                }            
             })
         }
         const button = document.getElementById('delete');
