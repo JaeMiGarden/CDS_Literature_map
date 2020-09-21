@@ -14,8 +14,8 @@ block content
             type:"get",
         url:"/api/board/list",
         success:function(res) {
-            if(!res) return;
-            res.map((a)=>{
+            if(!res.board) return;
+            res.board.map((a)=>{
                 var node = document.createElement("li");
                 node.innerHTML = `
                     <div class="card mb-4 shadow-sm" onclick="location.href='read/${a._id}'" style="cursor:pointer;">

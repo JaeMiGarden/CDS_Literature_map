@@ -9,6 +9,6 @@ apiRouter.post(route.mapBoard, apiPostBoard);
 apiRouter.get(route.totalBoard, apiGetTotalBoard);
 apiRouter.get(route.verifyId, apiGetUserExist);
 apiRouter.get(route.pdfCreate, apiGetPdfCreate);
-apiRouter.get(route.board_list, apiGetBoardList);
+apiRouter.get("/board" + route.board_list, apiGetBoardList);
 
 export default apiRouter;
