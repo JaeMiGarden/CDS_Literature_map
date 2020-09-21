@@ -26,6 +26,7 @@ app.use(helmet());
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, "templates/"));
 app.use(express.static(path.join(__dirname, "/templates")));
+app.use(express.static(path.join(__dirname, "/stylesheets")));
 app.use('/uploads', express.static(path.join(__dirname, "/uploads")));
 app.use('/assets', express.static(path.join(__dirname, '/assets')));
 app.use('/stylesheets', express.static(path.join(__dirname, '/templates/stylesheets')));
