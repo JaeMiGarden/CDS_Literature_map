@@ -14,7 +14,8 @@ export const postLogin = passport.authenticate('local', {
 });
 
 export const getSignin = (req, res) => {
-    return res.render("signin", {pageTitle:'Signin'});
+    return res.redirect('home');
+    // return res.render("signin", {pageTitle:'Signin'});
 };
 
 export const postSignin = async (req, res, next) => {
