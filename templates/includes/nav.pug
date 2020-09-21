@@ -20,7 +20,7 @@ div(class="text-right")
     nav(class="navbar navbar-expand-lg navbar-light bg-light")
         div(class="left-title")
             a(class="title " onclick='location.href="/"') 책따세 문학지도
-            div(class="view-box")
+            div(class="view-box" style={display :"none"})
                 p(class="view" id="map-view") 지도뷰
                 p(class="view" id="card-view") 카드뷰
 
@@ -28,7 +28,7 @@ div(class="text-right")
 
         div(class="collapse navbar-collapse" id="navbarNav")
             ul(class="navbar-nav")
-                if !auth || auth === false
+                if !user || auth === false
                     li(class="nav-item")   
                         a(class="nav-link" onClick='location.href="/login"') 로그인
                     //- li(class="nav-item")   
