@@ -39,12 +39,10 @@ block content
 
             res.map((a)=>{
                 var label = document.createElement('label');
-                var newContent = `<a href=/board/read/${a._id}>${a.title}</a></div>`;
-                label.appendChild(newContent);
-
+                label.innerHTML = `<a href=/board/read/${a._id}>${a.title}</a></div>`;
                 label.addEventListener('touchstart', () =>{
-                    console.log("?aaaaa");
-                })
+                    alert('Money on my mind');
+                });
 
                 if(!a.latitude || !a.longitude){
                     var latlng = new kakao.maps.LatLng(0.0,0.0);

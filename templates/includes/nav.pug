@@ -28,7 +28,7 @@ div(class="text-right")
 
         div(class="collapse navbar-collapse" id="navbarNav")
             ul(class="navbar-nav")
-                if auth === false
+                if !auth || auth === false
                     li(class="nav-item")   
                         a(class="nav-link" onClick='location.href="/login"') 로그인
                     li(class="nav-item")   
