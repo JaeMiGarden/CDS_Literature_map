@@ -23,9 +23,18 @@ export const apiGetTotalBoard = async (req, res) => {
     const {
         start, end
     } = req.query;
-
-    const result = await Board.find({}).skip(start).limit(end - start);
-    return res.json(result);
+    try {
+        var result = {};
+        if (!start || !end) {
+            result = await Board.find({});
+        }  else {
+            result = await Board.find({}).skip(start).limit(end - start);
+        }
+        return res.json(result);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(502);
+    };
 }
 
 export const apiGetUserExist = async (req, res) => {
