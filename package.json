@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "babel-node init.js"
+    "start": "nodemon --ignore 'logs/*' --exec babel-node init.js"
   },
   "repository": {
     "type": "git",
