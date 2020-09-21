@@ -30,7 +30,6 @@ app.use('/uploads', express.static(path.join(__dirname, "/uploads")));
 app.use('/assets', express.static(path.join(__dirname, '/assets')));
 app.use('/stylesheets', express.static(path.join(__dirname, '/templates/stylesheets')));
 app.use('/files', express.static(path.join(__dirname, '/templates/files')));
-app.use('/templates', express.static(path.join(__dirname, '/templates')));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
