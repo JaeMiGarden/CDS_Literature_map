@@ -90,3 +90,19 @@ export const apiGetPdfCreate = async (req, res) => {
     };
 
 }
+
+export const apiGetBoardList = async (req, res) => {
+    const {
+        name
+    } = req.user;
+    
+    try {
+        const board = await Board.find({ author:name });
+        return res.json({
+            board
+        });
+    } catch (error) {
+        console.log(error);
+        return res.redirect(route.home);
+    }
+}
