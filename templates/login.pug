@@ -3,7 +3,7 @@ extends layouts/basic
 block content
     form(class="form-signin" action="/login", method="post")
         a(class="h3 mb-3 title" href="/") 문학지도
-        h5(class="pagename") 로그인하기 - 숭문고등학교 학생
+        br
         br
         input(type="id" id="inputID" class="form-control" name="id" placeholder="이름" required="" autofocus="")
         input(type="password" id="inputPassword" class="form-control" name="password" placeholder="학번" required="")
