@@ -7,19 +7,19 @@ block content
         ul(id="boardList")
                 
 
-    script(type="text/javascript"  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b81dbf742aa1b9b6aaeb520face6627")
+    script(type="text/javascript"  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=69e437bebea2ce58d7b030961cf6f541")
     script.
-        var mapview = document.getElementById('map-view');
-        var cardview = document.getElementById('card-view');
+        //- var mapview = document.getElementById('map-view');
+        //- var cardview = document.getElementById('card-view');
 
-        mapview.onclick = function(){
-            board.style.display = 'none';
-            map.style.display = '';
-        }
-        cardview.onclick = function(){
-            map.style.display = 'none';
-            board.style.display = '';        
-        }
+        //- mapview.onclick = function(){
+        //-     board.style.display = 'none';
+        //-     map.style.display = '';
+        //- }
+        //- cardview.onclick = function(){
+        //-     map.style.display = 'none';
+        //-     board.style.display = '';        
+        //- }
 
         var mapContainer = document.getElementById('map');
         var positions = [];
@@ -27,7 +27,6 @@ block content
             center: new kakao.maps.LatLng(37.551311, 126.945565),
             level:2
         };
-
 
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 
@@ -77,31 +76,47 @@ block content
 
         function markerMaker(){
             
-            for (var i = 0; i < positions.length; i ++) {
+            for (var i = 0; i < positions.length; i++) {
                 var marker = new kakao.maps.Marker({
                     map, // 마커를 표시할 지도
+                    isopen : false,
                     position: positions[i].latlng // 마커의 위치
+
                 });
 
                 var infowindow = new kakao.maps.InfoWindow({
                     content: positions[i].content // 인포윈도우에 표시할 내용
                 });
-                kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(marker, infowindow));
-                kakao.maps.event.addListener(marker, 'click', makeOutListener(infowindow));
+ 
+                kakao.maps.event.addListener(marker, 'click', makeClickListener(marker, infowindow));
             }
         }                
         
-
-        function makeOverListener(marker, infowindow) {
+        function makeClickListener(marker, infowindow){
             return function() {
-                infowindow.open(map, marker);
-            };
+                if(marker.isopen){
+                    infowindow.close();
+                    marker.isopen = false;
+                }
+                else{
+                    infowindow.open(map, marker);
+                    marker.isopen = true;
+                }
+            }
         }
 
-        function makeOutListener(infowindow) {
-            return function() {
-                infowindow.close();
-            };
-        };
+        //- function makeOverListener(marker, infowindow) {
+        //-     return function() {
+        //-         infowindow.open(map, marker);
+        //-         console.log(`opened!!!!!!!!!!`);
+        //-     };
+        //- }
+
+        //- function makeOutListener(infowindow) {
+        //-     return function() {
+        //-         console.log(`closed!!!!!`);
+        //-         infowindow.close();
+        //-     };
+        //- };
 
         
