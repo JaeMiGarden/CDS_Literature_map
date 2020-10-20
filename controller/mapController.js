@@ -35,8 +35,8 @@ export const postBoardWrite = async (req, res) => {
     const votes = 0;
     try {
         const board = await new Board({
-            title, body, author, authorNumber,latitude, longitude, nickname, date,
-            image:filename
+            title, body, author, authorNumber,latitude, longitude, nickname, date, 
+            file: filename  
         });
         await board.save();
         return res.redirect(route.home);

@@ -6,20 +6,19 @@ block content
         h3(class="pagename" ) 전체 글 보기
         ul(id="boardList")
                 
-
-    script(type="text/javascript"  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=69e437bebea2ce58d7b030961cf6f541")
+    script(type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=69e437bebea2ce58d7b030961cf6f541")
     script.
-        //- var mapview = document.getElementById('map-view');
-        //- var cardview = document.getElementById('card-view');
+        var mapview = document.getElementById('map-view');
+        var cardview = document.getElementById('card-view');
 
-        //- mapview.onclick = function(){
-        //-     board.style.display = 'none';
-        //-     map.style.display = '';
-        //- }
-        //- cardview.onclick = function(){
-        //-     map.style.display = 'none';
-        //-     board.style.display = '';        
-        //- }
+        mapview.onclick = function(){
+            board.style.display = 'none';
+            map.style.display = '';
+        }
+        cardview.onclick = function(){
+            map.style.display = 'none';
+            board.style.display = '';        
+        }
 
         var mapContainer = document.getElementById('map');
         var positions = [];
@@ -31,45 +30,44 @@ block content
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 
         $(document).ready(function(){$.ajax({        
-            async:false,
-            type:"GET",
-        url:"/api/totalBoard",
-        success:function(res) {
-
-            res.map((a)=>{
-                var label = document.createElement('label');
-                label.innerHTML = `<a href=/board/read/${a._id}>${a.title}</a></div>`;
-                label.addEventListener('touchstart', () =>{
-                    alert('Money on my mind');
-                });
-
-                if(!a.latitude || !a.longitude){
-                    var latlng = new kakao.maps.LatLng(0.0,0.0);
-                    positions.push({
-                        content: label,
-                        latlng
+            async : false,
+            type : "GET",
+            url : "/api/totalBoard",
+            success : function(res) {
+                res.map((a)=>{
+                    var label = document.createElement('label');
+                    label.innerHTML = `<a href=/board/read/${a._id}>${a.title}</a></div>`;
+                    label.addEventListener('touchstart', () =>{
+                        alert('Money on my mind');
                     });
-                }
-                else {
-                    var latlng = new kakao.maps.LatLng(a.latitude, a.longitude);
 
-                    positions.push({
-                        content: label,
-                        latlng
-                    });
-                } 
-                /* var node = document.createElement("li");
-                node.innerHTML = `
-                    <div class="card mb-4 shadow-sm" onclick="location.href='read/${a._id}'" style="cursor:pointer;">
-                        <img class="bd-placeholder-img card-img-top" src="/uploads/${a.image}"></img>
-                            <div class="card-body">
-                                <p class="post-title">${a.title}</p>
-                                <p class="card-text"> ${a.body}</p>
-                            </div>
-                    </div>
-                                    `;
-                boardList.appendChild(node); */
-            })
+                    if(!a.latitude || !a.longitude){
+                        var latlng = new kakao.maps.LatLng(0.0,0.0);
+                        positions.push({
+                            content: label,
+                            latlng
+                        });
+                    }
+                    else {
+                        var latlng = new kakao.maps.LatLng(a.latitude, a.longitude);
+
+                        positions.push({
+                            content: label,
+                            latlng
+                        });
+                    } 
+                    /* var node = document.createElement("li");
+                    node.innerHTML = `
+                        <div class="card mb-4 shadow-sm" onclick="location.href='read/${a._id}'" style="cursor:pointer;">
+                            <img class="bd-placeholder-img card-img-top" src="/uploads/${a.image}"></img>
+                                <div class="card-body">
+                                    <p class="post-title">${a.title}</p>
+                                    <p class="card-text"> ${a.body}</p>
+                                </div>
+                        </div>
+                                        `;
+                    boardList.appendChild(node); */
+                })
             markerMaker();
         }});
         });
@@ -104,19 +102,3 @@ block content
                 }
             }
         }
-
-        //- function makeOverListener(marker, infowindow) {
-        //-     return function() {
-        //-         infowindow.open(map, marker);
-        //-         console.log(`opened!!!!!!!!!!`);
-        //-     };
-        //- }
-
-        //- function makeOutListener(infowindow) {
-        //-     return function() {
-        //-         console.log(`closed!!!!!`);
-        //-         infowindow.close();
-        //-     };
-        //- };
-
-        
