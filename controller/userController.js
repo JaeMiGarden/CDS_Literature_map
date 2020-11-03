@@ -4,8 +4,11 @@ import mongoose from 'mongoose';
 
 const User = mongoose.model('User');
 
+const UserService = require('./userService.js');
+var map_type = UserService.MAP_TYPE;
+
 export const getLogin = (req, res) => {
-    return res.render("login", {pageTitle: 'login'});
+    return res.render("login", {pageTitle: 'login', map_type});
 };
 
 export const postLogin = passport.authenticate('local', {

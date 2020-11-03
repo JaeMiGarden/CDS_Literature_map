@@ -9,6 +9,9 @@ moment.tz.setDefault("Asia/Seoul");
 
 const Board = mongoose.model('Board');
 
+const UserService = require('./userService.js');
+var map_type = UserService.MAP_TYPE;
+
 export const getHome = async (req, res) => {
     const board = await Board.find({});
     var user,
@@ -17,7 +20,7 @@ export const getHome = async (req, res) => {
         auth = true;
         user = req.user;
     }
-    return res.render('map', { pageTitle: "Home", board, auth, user});
+    return res.render('map', { pageTitle: "Home", board, auth, user, map_type});
 }
 
 export const getBoardWrite = (req, res) => {
