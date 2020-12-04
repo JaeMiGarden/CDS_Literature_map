@@ -20,7 +20,7 @@ export const getHome = async (req, res) => {
         auth = true;
         user = req.user;
     }
-    return res.render('map', { pageTitle: "Home", map_type : map_type, board, auth, user, });
+    return res.render('map', { pageTitle: "Home", mapTitle : map_type, board, auth, user, });
 }
 
 export const getBoardWrite = (req, res) => {
