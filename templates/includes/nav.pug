@@ -5,7 +5,7 @@ head
     meta(name="description" content="")
     meta(name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors")
     meta(name="generator" content="Jekyll v4.0.1")
-    title 숭문 봉사지도
+    title 
 
     <!-- Bootstrap core CSS -->
     link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous")
@@ -31,8 +31,8 @@ div(class="text-right")
                 if !user || auth === false
                     li(class="nav-item")   
                         a(class="nav-link" onClick='location.href="/login"') 로그인
-                    //- li(class="nav-item")   
-                    //-     a(class="nav-link" onClick='location.href="/signin"') 회원가입
+                    li(class="nav-item")   
+                        a(class="nav-link" onClick='location.href="/signin"') 회원가입
                 else 
                     li(class="nav-item") 
                         a(class="nav-link") #{user.name}님 환영합니다

@@ -13,7 +13,7 @@ globalRouter.get(route.login, onlyPublic,getLogin);
 globalRouter.post(route.login, onlyPublic, postLogin);
 
 globalRouter.get(route.signin, onlyPublic, getSignin);
-//globalRouter.post(route.signin, onlyPublic, postSignin, postLogin);
+globalRouter.post(route.signin, onlyPublic, postSignin, postLogin);
 
 globalRouter.get(route.logout, onlyPrivate, getLogout);
 

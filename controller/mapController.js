@@ -10,7 +10,7 @@ moment.tz.setDefault("Asia/Seoul");
 const Board = mongoose.model('Board');
 
 const UserService = require('./userService.js');
-var map_type = UserService.MAP_TYPE;
+const map_type = UserService.MAP_TYPE;
 
 export const getHome = async (req, res) => {
     const board = await Board.find({});
