@@ -4,13 +4,11 @@ import fs from 'fs';
 import path from 'path';
 import moment from 'moment';
 import 'moment-timezone';
+import MAP_TYPE from './userService'
 
 moment.tz.setDefault("Asia/Seoul");
 
 const Board = mongoose.model('Board');
-
-const UserService = require('./userService.js');
-const map_type = UserService.MAP_TYPE;
 
 export const getHome = async (req, res) => {
     const board = await Board.find({});
@@ -20,7 +18,7 @@ export const getHome = async (req, res) => {
         auth = true;
         user = req.user;
     }
-    return res.render('map', { pageTitle: "Home", mapTitle : map_type, board, auth, user, });
+    return res.render('map', { pageTitle: "Home", mapTitle : MAP_TYPE, board, auth, user, });
 }
 
 export const getBoardWrite = (req, res) => {
