@@ -36,16 +36,18 @@ block content
             success : function(res) {
                 res.map((a)=>{
                     var label = document.createElement('label');
-                    label.innerHTML = `<a href=/board/read/${a._id}>${a.title}</a></div>`;
-                    label.addEventListener('touchstart', () =>{
-                        alert('Money on my mind');
-                    });
+                    //label.innerHTML = `<a href=/board/read/${a._id}>${a.title}</a></div>`;
+                    label.innerHTML = 
+                    `<img class="bd-placeholder-img card-img-top" src="../uploads/${a.image}"></img>
+                        <div class="card-body">
+                            <a href=/board/read/${a._id}></a>
+                        </div>`
 
                     if(!a.latitude || !a.longitude){
                         var latlng = new kakao.maps.LatLng(0.0,0.0);
                         positions.push({
                             content: label,
-                            latlng
+                            latlng : latlng
                         });
                     }
                     else {
@@ -53,20 +55,19 @@ block content
 
                         positions.push({
                             content: label,
-                            latlng
+                            latlng :latlng
                         });
                     } 
-                    /* var node = document.createElement("li");
-                    node.innerHTML = `
-                        <div class="card mb-4 shadow-sm" onclick="location.href='read/${a._id}'" style="cursor:pointer;">
-                            <img class="bd-placeholder-img card-img-top" src="/uploads/${a.image}"></img>
-                                <div class="card-body">
-                                    <p class="post-title">${a.title}</p>
-                                    <p class="card-text"> ${a.body}</p>
-                                </div>
-                        </div>
-                                        `;
-                    boardList.appendChild(node); */
+                    //- var node = document.createElement("li");
+                    //- node.innerHTML = `
+                    //-     <div class="card mb-4 shadow-sm" onclick="location.href=/board/read/${a._id}" style="cursor:pointer;">
+                    //-         <img class="bd-placeholder-img card-img-top" src="/uploads/${a.image}"></img>
+                    //-             <div class="card-body">
+                    //-                 <p class="post-title">${a.title}</p>
+                    //-                 <p class="card-text"> ${a.body}</p>
+                    //-             </div>
+                    //-     </div>`;
+                    //- boardList.appendChild(node);
                 })
             markerMaker();
         }});

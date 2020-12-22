@@ -78,7 +78,7 @@ export const apiGetPdfCreate = async (req, res) => {
                 fit: [300, 300],
                 align: 'center',
                 valign:'center'
-            })          
+            })
         doc.fontSize(25).text(`Title : ${title}`);
         doc.fontSize(15).text(`Body : ${body}`);
         doc.fontSize(10).text(`Author : ${author} Date : ${date}`);
