@@ -24,7 +24,7 @@ block content
         var positions = [];
         var mapOption = {
             center: new kakao.maps.LatLng(37.551311, 126.945565),
-            level:2
+            level:1
         };
 
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
@@ -38,9 +38,9 @@ block content
                     var label = document.createElement('label');
                     //label.innerHTML = `<a href=/board/read/${a._id}>${a.title}</a></div>`;
                     label.innerHTML = 
-                    `<img class="bd-placeholder-img card-img-top" src="../uploads/${a.image}"></img>
+                    `<img src="../uploads/${a.image}" width = "140" height = "140"></img>
                         <div class="card-body">
-                            <a href=/board/read/${a._id}></a>
+                            <a href=/board/read/${a._id}>${a.title}</a>
                         </div>`
 
                     if(!a.latitude || !a.longitude){
@@ -78,7 +78,6 @@ block content
             for (var i = 0; i < positions.length; i++) {
                 var marker = new kakao.maps.Marker({
                     map, // 마커를 표시할 지도
-                    isopen : false,
                     position: positions[i].latlng // 마커의 위치
 
                 });
@@ -87,19 +86,20 @@ block content
                     content: positions[i].content // 인포윈도우에 표시할 내용
                 });
  
-                kakao.maps.event.addListener(marker, 'click', makeClickListener(marker, infowindow));
+                kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(marker, infowindow));
+                kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(marker, infowindow));
             }
         }                
         
-        function makeClickListener(marker, infowindow){
+        function makeOverListener(marker, infowindow){
             return function() {
-                if(marker.isopen){
-                    infowindow.close();
-                    marker.isopen = false;
-                }
-                else{
-                    infowindow.open(map, marker);
-                    marker.isopen = true;
-                }
+                infowindow.open(map, marker);
             }
         }
+        
+        function makeOutListener(marker, infowindow){
+            return function() {
+                infowindow.close();
+            }
+        }
+        
