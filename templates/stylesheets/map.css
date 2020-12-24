@@ -147,6 +147,9 @@ ul{
     display: flex;
     justify-content: space-around;
 }
+.popup-body {
+    text-align : center;
+}
 
 /* write */
 .img-button{
