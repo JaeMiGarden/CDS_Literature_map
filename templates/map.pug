@@ -36,6 +36,8 @@ block content
             minLevel: 2 // 클러스터 할 최소 지도 레벨 
         });
 
+        var opened_windows = [null, null, null];
+
         $(document).ready(function(){$.ajax({        
             async : false,
             type : "GET",
@@ -78,11 +80,16 @@ block content
                 });
 
                 var infowindow = new kakao.maps.InfoWindow({
-                    content: positions[i].content // 인포윈도우에 표시할 내용
+                    content: positions[i].content, // 인포윈도우에 표시할 내용
+                    position : null, //인포 윈도우가 표시될 위치
+                    isopen : false
                 });
                 
-                kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(marker, infowindow));
-                kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(marker, infowindow));
+                //mouse over && mouse out event 
+                //kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(marker, infowindow));
+                //kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(marker, infowindow));
+                
+                kakao.maps.event.addListener(marker, 'click', makeClickListener(marker, infowindow));
                 clusterer.addMarker(marker);
             }            
         }                
@@ -99,3 +106,25 @@ block content
             }
         }
         
+        function makeClickListener(marker, infowindow){
+            return function() {
+                if(marker.isopen) alert("이미지가 이미 지도에 표시되어 있습니다.");
+                else{
+                    //image가 모두 열려있는 경우
+                    if(opened_windows.every(function(x){ return x != null})) {
+                        alert("이미지가 너무 많이 열려있습니다. 이미지를 닫아주세요");
+                    }
+                    else {
+                        for(var i = 0; i < 3; i++){
+                            if(opened_windows[i] == null ){
+                                opened_windows.position = new kakao.maps.Point(200, 100);; //use pixel to coords
+                                opened_windows[i] = marker;
+                                marker.isopen = true;
+                                infowindow.open(map);
+                                break;
+                            } 
+                        }
+                    }
+                }
+            }
+        }
