@@ -2,11 +2,11 @@ extends layouts/basic
 
 block content
     form(class="form-signin" action="/login", method="post")
-        a(class="h3 mb-3 title" href="/") 책따세 봉사지도
+        a(class="h3 mb-3 title" href="/") 책따세 문학지도
         br
         br
         input(type="id" id="inputID" class="form-control" name="id" placeholder="아이디" required="" autofocus="")
         input(type="password" id="inputPassword" class="form-control" name="password" placeholder="비밀번호" required="")
         br
         input(class="btn btn-lg btn-success btn-block" type="submit" value="로그인")
-        //a(class="subtitle" href="/signin") 아직 회원가입을 안 하셨나요?
+        a(class="subtitle" href="/signin") 아직 회원가입을 안 하셨나요?
