@@ -15,7 +15,6 @@ export const postLogin = passport.authenticate('local', {
 });
 
 export const getSignin = (req, res) => {
-    //return res.redirect('home');
     return res.render("signin", {pageTitle:'Signin'});
 };
 
@@ -29,7 +28,8 @@ export const postSignin = async (req, res, next) => {
         }); 
         await user.save();
         next();
-    } catch (error) {
+    } 
+    catch (error) {
         console.log(error);
         return res.redirect(route.home);
     }

@@ -9,10 +9,10 @@ import route from '../router/routes';
 export const apiPostBoard = async (req, res) => {
     if (req.isAuthenticated()) {
         const result = await Board.find({
-        author: req.user.name,
-    authorNumber : req.user.studentNumber});
-    return res.json(result);
-
+            author: req.user.name,
+            authorNumber : req.user.studentNumber
+        });
+        return res.json(result);
     }
     else {
         return res.sendStatus(200);
@@ -27,7 +27,8 @@ export const apiGetTotalBoard = async (req, res) => {
         var result = {};
         if (!start || !end) {
             result = await Board.find({});
-        }  else {
+        }  
+        else {
             result = await Board.find({}).skip(start).limit(end - start);
         }
         return res.json(result);
@@ -46,7 +47,8 @@ export const apiGetUserExist = async (req, res) => {
         return res.json({
             status: true
         });
-    } else {
+    } 
+    else {
         return res.json({
             status: false
         });
@@ -63,9 +65,9 @@ export const apiGetPdfCreate = async (req, res) => {
     try {
         var posting = await Board.findById(id);
 
-    const {
-        body, author, date, votes, image, title,
-    } = posting;
+        const {
+            body, author, date, votes, image, title,
+        } = posting;
 
     // doc.pipe(fs.createWriteStream(`uploads/${title}.pdf`));
         doc.info.Title = title;
@@ -74,17 +76,18 @@ export const apiGetPdfCreate = async (req, res) => {
 
         doc.pipe(res);
         const imagePath = path.join(__dirname, `../uploads/${image}`);
-            doc.image(imagePath, {
-                fit: [300, 300],
-                align: 'center',
-                valign:'center'
-            })
+        doc.image(imagePath, {
+            fit: [300, 300],
+            align: 'center',
+            valign:'center'
+        });
         doc.fontSize(25).text(`Title : ${title}`);
         doc.fontSize(15).text(`Body : ${body}`);
         doc.fontSize(10).text(`Author : ${author} Date : ${date}`);
 
-    doc.end();
-    } catch (error) {
+        doc.end();
+    } 
+    catch (error) {
         console.log(error);
         return res.redirect(route.home);
     };
@@ -101,7 +104,8 @@ export const apiGetBoardList = async (req, res) => {
         return res.json({
             board
         });
-    } catch (error) {
+    } 
+    catch (error) {
         console.log(error);
         return res.redirect(route.home);
     }
