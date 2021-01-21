@@ -6,11 +6,11 @@ block content
             h3(class="pagename") 글쓰기
             div(class="header")
                 div(class="input-group-prepend post-title")
-                    span(class="input-group-text" ) 제목
-                    input(type="text" name="title" class="form-control" required="") 
+                    span(class="input-group-text") 제목
+                    input(type="text" name="title" class="form-control" required) 
                 div(class="input-group-prepend author")
-                    span(class="input-group-text" ) 저자
-                    input(type="text" name="nickname" class="form-control" id="author" value=`${user.id}` required="")
+                    span(class="input-group-text") 저자
+                    input(type="text" name="nickname" class="form-control" id="author" value=`${user.id}` required readonly)
             div(class="form-group")
                 textarea(name="body" class="form-control p-4" id="content") 
             div(class="form-group file-upload preview-image")
